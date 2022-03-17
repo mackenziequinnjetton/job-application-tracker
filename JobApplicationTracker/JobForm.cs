@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace JobApplicationTracker
 {
@@ -18,7 +18,9 @@ namespace JobApplicationTracker
             InitializeComponent();
         }
 
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        Excel.Application xlApp = new Excel.Application();
+
+        private void JobForm_Load(object sender, EventArgs e)
         {
 
         }

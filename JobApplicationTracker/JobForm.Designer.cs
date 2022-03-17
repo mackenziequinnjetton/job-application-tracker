@@ -64,7 +64,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(800, 450);
             this.tabControl.TabIndex = 0;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // filterTabPage
             // 
@@ -244,6 +243,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "JobForm";
             this.Text = "Job Application Tracker";
+            this.Load += new System.EventHandler(this.JobForm_Load);
             this.tabControl.ResumeLayout(false);
             this.filterTabPage.ResumeLayout(false);
             this.filterTabPage.PerformLayout();
