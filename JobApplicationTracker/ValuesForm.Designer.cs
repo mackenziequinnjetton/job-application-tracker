@@ -31,20 +31,27 @@
             this.valuesPanel = new System.Windows.Forms.Panel();
             this.ftPtSurveyTrackBar = new System.Windows.Forms.TrackBar();
             this.welcomeLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.surveyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ftPtSurveyLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ftPtSurveyPanel = new System.Windows.Forms.Panel();
             this.ftPtSurveyZeroLabel = new System.Windows.Forms.Label();
             this.ftPtSurveyTenLabel = new System.Windows.Forms.Label();
+            this.empConSurveyLabel = new System.Windows.Forms.Label();
+            this.empConSurveyPanel = new System.Windows.Forms.Panel();
+            this.empConSurveyTenLabel = new System.Windows.Forms.Label();
+            this.empConSurveyZeroLabel = new System.Windows.Forms.Label();
+            this.empConSurveyTrackBar = new System.Windows.Forms.TrackBar();
             this.valuesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ftPtSurveyTrackBar)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.surveyTableLayoutPanel.SuspendLayout();
+            this.ftPtSurveyPanel.SuspendLayout();
+            this.empConSurveyPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.empConSurveyTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // valuesPanel
             // 
-            this.valuesPanel.Controls.Add(this.tableLayoutPanel1);
+            this.valuesPanel.Controls.Add(this.surveyTableLayoutPanel);
             this.valuesPanel.Controls.Add(this.welcomeLabel);
             this.valuesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.valuesPanel.Location = new System.Drawing.Point(0, 0);
@@ -71,40 +78,42 @@
             this.welcomeLabel.Text = "Welcome! So we can give you appropriate job recommendations, please fill out this" +
     " form indicating your career preferences and values.";
             // 
-            // tableLayoutPanel1
+            // surveyTableLayoutPanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.375F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.625F));
-            this.tableLayoutPanel1.Controls.Add(this.ftPtSurveyLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 16);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.59447F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.40553F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 434);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.surveyTableLayoutPanel.ColumnCount = 2;
+            this.surveyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.125F));
+            this.surveyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.875F));
+            this.surveyTableLayoutPanel.Controls.Add(this.empConSurveyPanel, 1, 1);
+            this.surveyTableLayoutPanel.Controls.Add(this.ftPtSurveyLabel, 0, 0);
+            this.surveyTableLayoutPanel.Controls.Add(this.ftPtSurveyPanel, 1, 0);
+            this.surveyTableLayoutPanel.Controls.Add(this.empConSurveyLabel, 0, 1);
+            this.surveyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.surveyTableLayoutPanel.Location = new System.Drawing.Point(0, 16);
+            this.surveyTableLayoutPanel.Name = "surveyTableLayoutPanel";
+            this.surveyTableLayoutPanel.RowCount = 2;
+            this.surveyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.59447F));
+            this.surveyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.40553F));
+            this.surveyTableLayoutPanel.Size = new System.Drawing.Size(800, 434);
+            this.surveyTableLayoutPanel.TabIndex = 2;
             // 
             // ftPtSurveyLabel
             // 
             this.ftPtSurveyLabel.AutoSize = true;
             this.ftPtSurveyLabel.Location = new System.Drawing.Point(3, 0);
             this.ftPtSurveyLabel.Name = "ftPtSurveyLabel";
-            this.ftPtSurveyLabel.Size = new System.Drawing.Size(274, 13);
+            this.ftPtSurveyLabel.Size = new System.Drawing.Size(335, 13);
             this.ftPtSurveyLabel.TabIndex = 2;
-            this.ftPtSurveyLabel.Text = "How important is position type (full time/part time) to you?";
+            this.ftPtSurveyLabel.Text = "How important is your chosen position type (full time/part time) to you?";
             // 
-            // panel1
+            // ftPtSurveyPanel
             // 
-            this.panel1.Controls.Add(this.ftPtSurveyTenLabel);
-            this.panel1.Controls.Add(this.ftPtSurveyZeroLabel);
-            this.panel1.Controls.Add(this.ftPtSurveyTrackBar);
-            this.panel1.Location = new System.Drawing.Point(310, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(419, 53);
-            this.panel1.TabIndex = 3;
+            this.ftPtSurveyPanel.Controls.Add(this.ftPtSurveyTenLabel);
+            this.ftPtSurveyPanel.Controls.Add(this.ftPtSurveyZeroLabel);
+            this.ftPtSurveyPanel.Controls.Add(this.ftPtSurveyTrackBar);
+            this.ftPtSurveyPanel.Location = new System.Drawing.Point(364, 3);
+            this.ftPtSurveyPanel.Name = "ftPtSurveyPanel";
+            this.ftPtSurveyPanel.Size = new System.Drawing.Size(419, 53);
+            this.ftPtSurveyPanel.TabIndex = 3;
             // 
             // ftPtSurveyZeroLabel
             // 
@@ -124,6 +133,51 @@
             this.ftPtSurveyTenLabel.TabIndex = 3;
             this.ftPtSurveyTenLabel.Text = "10";
             // 
+            // empConSurveyLabel
+            // 
+            this.empConSurveyLabel.AutoSize = true;
+            this.empConSurveyLabel.Location = new System.Drawing.Point(3, 59);
+            this.empConSurveyLabel.Name = "empConSurveyLabel";
+            this.empConSurveyLabel.Size = new System.Drawing.Size(353, 13);
+            this.empConSurveyLabel.TabIndex = 4;
+            this.empConSurveyLabel.Text = "How important is your chosen position type (employee/contractor) to you?";
+            // 
+            // empConSurveyPanel
+            // 
+            this.empConSurveyPanel.Controls.Add(this.empConSurveyTenLabel);
+            this.empConSurveyPanel.Controls.Add(this.empConSurveyZeroLabel);
+            this.empConSurveyPanel.Controls.Add(this.empConSurveyTrackBar);
+            this.empConSurveyPanel.Location = new System.Drawing.Point(364, 62);
+            this.empConSurveyPanel.Name = "empConSurveyPanel";
+            this.empConSurveyPanel.Size = new System.Drawing.Size(419, 53);
+            this.empConSurveyPanel.TabIndex = 5;
+            // 
+            // empConSurveyTenLabel
+            // 
+            this.empConSurveyTenLabel.AutoSize = true;
+            this.empConSurveyTenLabel.Location = new System.Drawing.Point(391, 4);
+            this.empConSurveyTenLabel.Name = "empConSurveyTenLabel";
+            this.empConSurveyTenLabel.Size = new System.Drawing.Size(19, 13);
+            this.empConSurveyTenLabel.TabIndex = 3;
+            this.empConSurveyTenLabel.Text = "10";
+            // 
+            // empConSurveyZeroLabel
+            // 
+            this.empConSurveyZeroLabel.AutoSize = true;
+            this.empConSurveyZeroLabel.Location = new System.Drawing.Point(0, 4);
+            this.empConSurveyZeroLabel.Name = "empConSurveyZeroLabel";
+            this.empConSurveyZeroLabel.Size = new System.Drawing.Size(13, 13);
+            this.empConSurveyZeroLabel.TabIndex = 2;
+            this.empConSurveyZeroLabel.Text = "0";
+            // 
+            // empConSurveyTrackBar
+            // 
+            this.empConSurveyTrackBar.Location = new System.Drawing.Point(19, 0);
+            this.empConSurveyTrackBar.Name = "empConSurveyTrackBar";
+            this.empConSurveyTrackBar.Size = new System.Drawing.Size(369, 45);
+            this.empConSurveyTrackBar.TabIndex = 1;
+            this.empConSurveyTrackBar.Value = 5;
+            // 
             // ValuesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,10 +189,13 @@
             this.valuesPanel.ResumeLayout(false);
             this.valuesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ftPtSurveyTrackBar)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.surveyTableLayoutPanel.ResumeLayout(false);
+            this.surveyTableLayoutPanel.PerformLayout();
+            this.ftPtSurveyPanel.ResumeLayout(false);
+            this.ftPtSurveyPanel.PerformLayout();
+            this.empConSurveyPanel.ResumeLayout(false);
+            this.empConSurveyPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.empConSurveyTrackBar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -148,10 +205,15 @@
         private System.Windows.Forms.Panel valuesPanel;
         private System.Windows.Forms.TrackBar ftPtSurveyTrackBar;
         private System.Windows.Forms.Label welcomeLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel surveyTableLayoutPanel;
         private System.Windows.Forms.Label ftPtSurveyLabel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel ftPtSurveyPanel;
         private System.Windows.Forms.Label ftPtSurveyZeroLabel;
         private System.Windows.Forms.Label ftPtSurveyTenLabel;
+        private System.Windows.Forms.Panel empConSurveyPanel;
+        private System.Windows.Forms.Label empConSurveyTenLabel;
+        private System.Windows.Forms.Label empConSurveyZeroLabel;
+        private System.Windows.Forms.TrackBar empConSurveyTrackBar;
+        private System.Windows.Forms.Label empConSurveyLabel;
     }
 }
