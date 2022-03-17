@@ -91,8 +91,8 @@
             // filterTableLayoutPanel
             // 
             this.filterTableLayoutPanel.ColumnCount = 2;
-            this.filterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.filterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.filterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.61069F));
+            this.filterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.38931F));
             this.filterTableLayoutPanel.Controls.Add(this.ftPtFilterLabel, 0, 0);
             this.filterTableLayoutPanel.Controls.Add(this.ftPtFilterComboBox, 1, 0);
             this.filterTableLayoutPanel.Controls.Add(this.empConFilterLabel, 0, 1);
@@ -101,8 +101,8 @@
             this.filterTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.filterTableLayoutPanel.Name = "filterTableLayoutPanel";
             this.filterTableLayoutPanel.RowCount = 2;
-            this.filterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.filterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.filterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.filterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66F));
             this.filterTableLayoutPanel.Size = new System.Drawing.Size(786, 100);
             this.filterTableLayoutPanel.TabIndex = 0;
             // 
@@ -121,7 +121,7 @@
             this.ftPtFilterComboBox.Items.AddRange(new object[] {
             "Full Time",
             "Part Time"});
-            this.ftPtFilterComboBox.Location = new System.Drawing.Point(396, 3);
+            this.ftPtFilterComboBox.Location = new System.Drawing.Point(165, 3);
             this.ftPtFilterComboBox.Name = "ftPtFilterComboBox";
             this.ftPtFilterComboBox.Size = new System.Drawing.Size(121, 21);
             this.ftPtFilterComboBox.TabIndex = 1;
@@ -213,16 +213,19 @@
             // empConFilterLabel
             // 
             this.empConFilterLabel.AutoSize = true;
-            this.empConFilterLabel.Location = new System.Drawing.Point(3, 50);
+            this.empConFilterLabel.Location = new System.Drawing.Point(3, 34);
             this.empConFilterLabel.Name = "empConFilterLabel";
-            this.empConFilterLabel.Size = new System.Drawing.Size(98, 13);
+            this.empConFilterLabel.Size = new System.Drawing.Size(107, 13);
             this.empConFilterLabel.TabIndex = 2;
-            this.empConFilterLabel.Text = "Employee/Contract";
+            this.empConFilterLabel.Text = "Employee/Contractor";
             // 
             // empConFilterComboBox
             // 
             this.empConFilterComboBox.FormattingEnabled = true;
-            this.empConFilterComboBox.Location = new System.Drawing.Point(396, 53);
+            this.empConFilterComboBox.Items.AddRange(new object[] {
+            "Employee",
+            "Contractor"});
+            this.empConFilterComboBox.Location = new System.Drawing.Point(165, 37);
             this.empConFilterComboBox.Name = "empConFilterComboBox";
             this.empConFilterComboBox.Size = new System.Drawing.Size(121, 21);
             this.empConFilterComboBox.TabIndex = 3;
