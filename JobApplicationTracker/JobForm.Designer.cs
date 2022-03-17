@@ -43,8 +43,12 @@
             this.ftPtColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.recommendedTabPage = new System.Windows.Forms.TabPage();
             this.actionTabPage = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.actionCheckBox1 = new System.Windows.Forms.CheckBox();
             this.actionListView = new System.Windows.Forms.ListView();
+            this.actionCheckBox2 = new System.Windows.Forms.CheckBox();
+            this.actionCheckBox3 = new System.Windows.Forms.CheckBox();
+            this.actionCheckBox4 = new System.Windows.Forms.CheckBox();
+            this.actionCheckBox5 = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.filterTabPage.SuspendLayout();
             this.filterTableLayoutPanel.SuspendLayout();
@@ -206,7 +210,11 @@
             // 
             // actionTabPage
             // 
-            this.actionTabPage.Controls.Add(this.checkBox1);
+            this.actionTabPage.Controls.Add(this.actionCheckBox5);
+            this.actionTabPage.Controls.Add(this.actionCheckBox4);
+            this.actionTabPage.Controls.Add(this.actionCheckBox3);
+            this.actionTabPage.Controls.Add(this.actionCheckBox2);
+            this.actionTabPage.Controls.Add(this.actionCheckBox1);
             this.actionTabPage.Controls.Add(this.actionListView);
             this.actionTabPage.Location = new System.Drawing.Point(4, 22);
             this.actionTabPage.Name = "actionTabPage";
@@ -215,15 +223,15 @@
             this.actionTabPage.Text = "Action Items";
             this.actionTabPage.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // actionCheckBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(3, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.actionCheckBox1.AutoSize = true;
+            this.actionCheckBox1.Location = new System.Drawing.Point(3, 3);
+            this.actionCheckBox1.Name = "actionCheckBox1";
+            this.actionCheckBox1.Size = new System.Drawing.Size(88, 17);
+            this.actionCheckBox1.TabIndex = 2;
+            this.actionCheckBox1.Text = "Action Item 1";
+            this.actionCheckBox1.UseVisualStyleBackColor = true;
             // 
             // actionListView
             // 
@@ -234,6 +242,46 @@
             this.actionListView.Size = new System.Drawing.Size(792, 424);
             this.actionListView.TabIndex = 0;
             this.actionListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // actionCheckBox2
+            // 
+            this.actionCheckBox2.AutoSize = true;
+            this.actionCheckBox2.Location = new System.Drawing.Point(3, 27);
+            this.actionCheckBox2.Name = "actionCheckBox2";
+            this.actionCheckBox2.Size = new System.Drawing.Size(88, 17);
+            this.actionCheckBox2.TabIndex = 3;
+            this.actionCheckBox2.Text = "Action Item 2";
+            this.actionCheckBox2.UseVisualStyleBackColor = true;
+            // 
+            // actionCheckBox3
+            // 
+            this.actionCheckBox3.AutoSize = true;
+            this.actionCheckBox3.Location = new System.Drawing.Point(3, 51);
+            this.actionCheckBox3.Name = "actionCheckBox3";
+            this.actionCheckBox3.Size = new System.Drawing.Size(88, 17);
+            this.actionCheckBox3.TabIndex = 4;
+            this.actionCheckBox3.Text = "Action Item 3";
+            this.actionCheckBox3.UseVisualStyleBackColor = true;
+            // 
+            // actionCheckBox4
+            // 
+            this.actionCheckBox4.AutoSize = true;
+            this.actionCheckBox4.Location = new System.Drawing.Point(3, 75);
+            this.actionCheckBox4.Name = "actionCheckBox4";
+            this.actionCheckBox4.Size = new System.Drawing.Size(88, 17);
+            this.actionCheckBox4.TabIndex = 5;
+            this.actionCheckBox4.Text = "Action Item 4";
+            this.actionCheckBox4.UseVisualStyleBackColor = true;
+            // 
+            // actionCheckBox5
+            // 
+            this.actionCheckBox5.AutoSize = true;
+            this.actionCheckBox5.Location = new System.Drawing.Point(3, 99);
+            this.actionCheckBox5.Name = "actionCheckBox5";
+            this.actionCheckBox5.Size = new System.Drawing.Size(88, 17);
+            this.actionCheckBox5.TabIndex = 6;
+            this.actionCheckBox5.Text = "Action Item 5";
+            this.actionCheckBox5.UseVisualStyleBackColor = true;
             // 
             // JobForm
             // 
@@ -265,7 +313,7 @@
         private System.Windows.Forms.TabPage actionTabPage;
         private System.Windows.Forms.ListView actionListView;
         private System.Windows.Forms.TabPage filterTabPage;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox actionCheckBox1;
         private System.Windows.Forms.DataGridView jobDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employerColumn;
@@ -276,6 +324,10 @@
         private System.Windows.Forms.ComboBox ftPtFilterComboBox;
         private System.Windows.Forms.Label empConFilterLabel;
         private System.Windows.Forms.ComboBox empConFilterComboBox;
+        private System.Windows.Forms.CheckBox actionCheckBox3;
+        private System.Windows.Forms.CheckBox actionCheckBox2;
+        private System.Windows.Forms.CheckBox actionCheckBox5;
+        private System.Windows.Forms.CheckBox actionCheckBox4;
     }
 }
 
