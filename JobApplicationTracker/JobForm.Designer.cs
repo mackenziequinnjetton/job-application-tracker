@@ -49,12 +49,17 @@
             this.actionCheckBox3 = new System.Windows.Forms.CheckBox();
             this.actionCheckBox4 = new System.Windows.Forms.CheckBox();
             this.actionCheckBox5 = new System.Windows.Forms.CheckBox();
+            this.recommendedDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.filterTabPage.SuspendLayout();
             this.filterTableLayoutPanel.SuspendLayout();
             this.jobTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jobDataGridView)).BeginInit();
+            this.recommendedTabPage.SuspendLayout();
             this.actionTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.recommendedDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -200,6 +205,7 @@
             // 
             // recommendedTabPage
             // 
+            this.recommendedTabPage.Controls.Add(this.recommendedDataGridView);
             this.recommendedTabPage.Location = new System.Drawing.Point(4, 22);
             this.recommendedTabPage.Name = "recommendedTabPage";
             this.recommendedTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
@@ -283,6 +289,32 @@
             this.actionCheckBox5.Text = "Action Item 5";
             this.actionCheckBox5.UseVisualStyleBackColor = true;
             // 
+            // recommendedDataGridView
+            // 
+            this.recommendedDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.recommendedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.recommendedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.recommendedDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recommendedDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.recommendedDataGridView.Name = "recommendedDataGridView";
+            this.recommendedDataGridView.RowHeadersWidth = 51;
+            this.recommendedDataGridView.Size = new System.Drawing.Size(786, 418);
+            this.recommendedDataGridView.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Position Title";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Employer";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
             // JobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,8 +331,10 @@
             this.filterTableLayoutPanel.PerformLayout();
             this.jobTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.jobDataGridView)).EndInit();
+            this.recommendedTabPage.ResumeLayout(false);
             this.actionTabPage.ResumeLayout(false);
             this.actionTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.recommendedDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,6 +362,9 @@
         private System.Windows.Forms.CheckBox actionCheckBox2;
         private System.Windows.Forms.CheckBox actionCheckBox5;
         private System.Windows.Forms.CheckBox actionCheckBox4;
+        private System.Windows.Forms.DataGridView recommendedDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }
 
