@@ -34,6 +34,8 @@
             this.filterTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ftPtFilterLabel = new System.Windows.Forms.Label();
             this.ftPtFilterComboBox = new System.Windows.Forms.ComboBox();
+            this.empConFilterLabel = new System.Windows.Forms.Label();
+            this.empConFilterComboBox = new System.Windows.Forms.ComboBox();
             this.jobTabPage = new System.Windows.Forms.TabPage();
             this.jobDataGridView = new System.Windows.Forms.DataGridView();
             this.positionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,8 +45,6 @@
             this.actionTabPage = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.actionListView = new System.Windows.Forms.ListView();
-            this.empConFilterLabel = new System.Windows.Forms.Label();
-            this.empConFilterComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl.SuspendLayout();
             this.filterTabPage.SuspendLayout();
             this.filterTableLayoutPanel.SuspendLayout();
@@ -72,7 +72,7 @@
             this.filterTabPage.Controls.Add(this.filterTableLayoutPanel);
             this.filterTabPage.Location = new System.Drawing.Point(4, 22);
             this.filterTabPage.Name = "filterTabPage";
-            this.filterTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.filterTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.filterTabPage.Size = new System.Drawing.Size(792, 424);
             this.filterTabPage.TabIndex = 3;
             this.filterTabPage.Text = "Filters";
@@ -90,20 +90,22 @@
             // 
             // filterTableLayoutPanel
             // 
+            this.filterTableLayoutPanel.AutoSize = true;
+            this.filterTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.filterTableLayoutPanel.ColumnCount = 2;
-            this.filterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.61069F));
-            this.filterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.38931F));
+            this.filterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.filterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.filterTableLayoutPanel.Controls.Add(this.ftPtFilterLabel, 0, 0);
             this.filterTableLayoutPanel.Controls.Add(this.ftPtFilterComboBox, 1, 0);
             this.filterTableLayoutPanel.Controls.Add(this.empConFilterLabel, 0, 1);
             this.filterTableLayoutPanel.Controls.Add(this.empConFilterComboBox, 1, 1);
-            this.filterTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filterTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filterTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.filterTableLayoutPanel.Name = "filterTableLayoutPanel";
             this.filterTableLayoutPanel.RowCount = 2;
-            this.filterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.filterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66F));
-            this.filterTableLayoutPanel.Size = new System.Drawing.Size(786, 100);
+            this.filterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.510638F));
+            this.filterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.48936F));
+            this.filterTableLayoutPanel.Size = new System.Drawing.Size(786, 418);
             this.filterTableLayoutPanel.TabIndex = 0;
             // 
             // ftPtFilterLabel
@@ -121,17 +123,37 @@
             this.ftPtFilterComboBox.Items.AddRange(new object[] {
             "Full Time",
             "Part Time"});
-            this.ftPtFilterComboBox.Location = new System.Drawing.Point(165, 3);
+            this.ftPtFilterComboBox.Location = new System.Drawing.Point(116, 3);
             this.ftPtFilterComboBox.Name = "ftPtFilterComboBox";
             this.ftPtFilterComboBox.Size = new System.Drawing.Size(121, 21);
             this.ftPtFilterComboBox.TabIndex = 1;
+            // 
+            // empConFilterLabel
+            // 
+            this.empConFilterLabel.AutoSize = true;
+            this.empConFilterLabel.Location = new System.Drawing.Point(3, 35);
+            this.empConFilterLabel.Name = "empConFilterLabel";
+            this.empConFilterLabel.Size = new System.Drawing.Size(107, 13);
+            this.empConFilterLabel.TabIndex = 2;
+            this.empConFilterLabel.Text = "Employee/Contractor";
+            // 
+            // empConFilterComboBox
+            // 
+            this.empConFilterComboBox.FormattingEnabled = true;
+            this.empConFilterComboBox.Items.AddRange(new object[] {
+            "Employee",
+            "Contractor"});
+            this.empConFilterComboBox.Location = new System.Drawing.Point(116, 38);
+            this.empConFilterComboBox.Name = "empConFilterComboBox";
+            this.empConFilterComboBox.Size = new System.Drawing.Size(121, 21);
+            this.empConFilterComboBox.TabIndex = 3;
             // 
             // jobTabPage
             // 
             this.jobTabPage.Controls.Add(this.jobDataGridView);
             this.jobTabPage.Location = new System.Drawing.Point(4, 22);
             this.jobTabPage.Name = "jobTabPage";
-            this.jobTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.jobTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.jobTabPage.Size = new System.Drawing.Size(792, 424);
             this.jobTabPage.TabIndex = 0;
             this.jobTabPage.Text = "Job List";
@@ -148,17 +170,20 @@
             this.jobDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jobDataGridView.Location = new System.Drawing.Point(3, 3);
             this.jobDataGridView.Name = "jobDataGridView";
+            this.jobDataGridView.RowHeadersWidth = 51;
             this.jobDataGridView.Size = new System.Drawing.Size(786, 418);
             this.jobDataGridView.TabIndex = 0;
             // 
             // positionColumn
             // 
             this.positionColumn.HeaderText = "Position Title";
+            this.positionColumn.MinimumWidth = 6;
             this.positionColumn.Name = "positionColumn";
             // 
             // employerColumn
             // 
             this.employerColumn.HeaderText = "Employer";
+            this.employerColumn.MinimumWidth = 6;
             this.employerColumn.Name = "employerColumn";
             // 
             // ftPtColumn
@@ -167,13 +192,14 @@
             this.ftPtColumn.Items.AddRange(new object[] {
             "Full Time",
             "Part Time"});
+            this.ftPtColumn.MinimumWidth = 6;
             this.ftPtColumn.Name = "ftPtColumn";
             // 
             // recommendedTabPage
             // 
             this.recommendedTabPage.Location = new System.Drawing.Point(4, 22);
             this.recommendedTabPage.Name = "recommendedTabPage";
-            this.recommendedTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.recommendedTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.recommendedTabPage.Size = new System.Drawing.Size(792, 424);
             this.recommendedTabPage.TabIndex = 1;
             this.recommendedTabPage.Text = "Recommended Jobs";
@@ -210,26 +236,6 @@
             this.actionListView.TabIndex = 0;
             this.actionListView.UseCompatibleStateImageBehavior = false;
             // 
-            // empConFilterLabel
-            // 
-            this.empConFilterLabel.AutoSize = true;
-            this.empConFilterLabel.Location = new System.Drawing.Point(3, 34);
-            this.empConFilterLabel.Name = "empConFilterLabel";
-            this.empConFilterLabel.Size = new System.Drawing.Size(107, 13);
-            this.empConFilterLabel.TabIndex = 2;
-            this.empConFilterLabel.Text = "Employee/Contractor";
-            // 
-            // empConFilterComboBox
-            // 
-            this.empConFilterComboBox.FormattingEnabled = true;
-            this.empConFilterComboBox.Items.AddRange(new object[] {
-            "Employee",
-            "Contractor"});
-            this.empConFilterComboBox.Location = new System.Drawing.Point(165, 37);
-            this.empConFilterComboBox.Name = "empConFilterComboBox";
-            this.empConFilterComboBox.Size = new System.Drawing.Size(121, 21);
-            this.empConFilterComboBox.TabIndex = 3;
-            // 
             // JobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +246,7 @@
             this.Text = "Job Application Tracker";
             this.tabControl.ResumeLayout(false);
             this.filterTabPage.ResumeLayout(false);
+            this.filterTabPage.PerformLayout();
             this.filterTableLayoutPanel.ResumeLayout(false);
             this.filterTableLayoutPanel.PerformLayout();
             this.jobTabPage.ResumeLayout(false);
