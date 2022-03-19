@@ -19,10 +19,58 @@ namespace JobApplicationTracker
         }
 
         Excel.Application xlApp = new Excel.Application();
+        Excel.Workbook xlWb;
+        Excel.Worksheet xlWs;
 
+        private void ReadExcel(string wbName, string wsName, 
+            DataGridView targetDataGridView)
+        {
+            xlWb = xlApp.Workbooks.Open(wbName);
+            xlWs = xlWb.Worksheets[wsName];
+
+            for (int iCol = 1; iCol <= xlWs.Columns.Count; iCol++)
+            {
+                if (xlWs.Cells[1, iCol].value == null)
+                {
+                    break;
+                }
+                else
+                {
+                    DataGridViewColumn col = new DataGridViewColumn();
+                    col.HeaderText = xlWs.Cells[1, iCol].Value;
+                    targetDataGridView.Columns.Add(col);
+                }
+            }
+
+            for (int iRow = 2; iRow <= xlWs.Rows.Count; iRow++)
+            {
+                if (xlWs.Cells[iRow, 1].value == null)
+                {
+                    break;
+                }
+                else
+                {
+                    string[] row = new string[] {
+                        xlWs.Cells[iRow, 1].Value,
+                        xlWs.Cells[iRow, 2].Value,
+                        xlWs.Cells[iRow, 3].Value,
+                        xlWs.Cells[iRow, 4].Value,
+                    };
+                    
+                    targetDataGridView.Rows.Add(row);
+                }
+            }
+
+            xlWb.Close();
+            xlApp.Quit();
+
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWb);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWs);
+        }
         private void JobForm_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
