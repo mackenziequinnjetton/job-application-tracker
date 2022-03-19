@@ -36,7 +36,7 @@ namespace JobApplicationTracker
                 }
                 else
                 {
-                    DataGridViewColumn col = new DataGridViewColumn();
+                    DataGridViewColumn col = new DataGridViewTextBoxColumn();
                     col.HeaderText = xlWs.Cells[1, iCol].Value;
                     targetDataGridView.Columns.Add(col);
                 }
@@ -70,7 +70,8 @@ namespace JobApplicationTracker
         }
         private void JobForm_Load(object sender, EventArgs e)
         {
-            
+            ReadExcel(@"C:\Users\macke\Documents\Otech\PROG2002\JobApplicationTracker\JobData.xlsx",
+                "JobList", jobDataGridView);
         }
     }
 }
