@@ -49,6 +49,10 @@
             this.actionCheckBox2 = new System.Windows.Forms.CheckBox();
             this.actionCheckBox1 = new System.Windows.Forms.CheckBox();
             this.actionListView = new System.Windows.Forms.ListView();
+            this.positionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ftPtColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.empConColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl.SuspendLayout();
             this.filterTabPage.SuspendLayout();
             this.filterTableLayoutPanel.SuspendLayout();
@@ -168,6 +172,11 @@
             // 
             this.jobDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.jobDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.jobDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.positionColumn,
+            this.employerColumn,
+            this.ftPtColumn,
+            this.empConColumn});
             this.jobDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jobDataGridView.Location = new System.Drawing.Point(3, 3);
             this.jobDataGridView.Name = "jobDataGridView";
@@ -287,6 +296,37 @@
             this.actionListView.TabIndex = 0;
             this.actionListView.UseCompatibleStateImageBehavior = false;
             // 
+            // positionColumn
+            // 
+            this.positionColumn.HeaderText = "Position Title";
+            this.positionColumn.MinimumWidth = 6;
+            this.positionColumn.Name = "positionColumn";
+            // 
+            // employerColumn
+            // 
+            this.employerColumn.HeaderText = "Employer";
+            this.employerColumn.MinimumWidth = 6;
+            this.employerColumn.Name = "employerColumn";
+            // 
+            // ftPtColumn
+            // 
+            this.ftPtColumn.HeaderText = "Full Time/Part Time";
+            this.ftPtColumn.Items.AddRange(new object[] {
+            "Full Time",
+            "Part Time"});
+            this.ftPtColumn.MinimumWidth = 6;
+            this.ftPtColumn.Name = "ftPtColumn";
+            // 
+            // empConColumn
+            // 
+            this.empConColumn.HeaderText = "Employee/Contractor";
+            this.empConColumn.Items.AddRange(new object[] {
+            "Employee",
+            "Contractor"});
+            this.empConColumn.Name = "empConColumn";
+            this.empConColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.empConColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // JobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,6 +335,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "JobForm";
             this.Text = "Job Application Tracker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JobForm_FormClosing);
             this.Load += new System.EventHandler(this.JobForm_Load);
             this.tabControl.ResumeLayout(false);
             this.filterTabPage.ResumeLayout(false);
@@ -334,6 +375,10 @@
         private System.Windows.Forms.DataGridView recommendedDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn positionColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employerColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ftPtColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn empConColumn;
     }
 }
 
