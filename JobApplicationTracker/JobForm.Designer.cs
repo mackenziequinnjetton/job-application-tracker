@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.filterTabPage = new System.Windows.Forms.TabPage();
             this.filterApplyButton = new System.Windows.Forms.Button();
@@ -53,6 +54,7 @@
             this.employerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ftPtColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.empConColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.jobBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl.SuspendLayout();
             this.filterTabPage.SuspendLayout();
             this.filterTableLayoutPanel.SuspendLayout();
@@ -61,6 +63,7 @@
             this.recommendedTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recommendedDataGridView)).BeginInit();
             this.actionTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -183,6 +186,7 @@
             this.jobDataGridView.RowHeadersWidth = 51;
             this.jobDataGridView.Size = new System.Drawing.Size(786, 418);
             this.jobDataGridView.TabIndex = 0;
+            this.jobDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.jobDataGridView_CellValueChanged);
             // 
             // recommendedTabPage
             // 
@@ -327,6 +331,10 @@
             this.empConColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.empConColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // jobBindingSource
+            // 
+            this.jobBindingSource.DataSource = typeof(JobApplicationTracker.JobForm.Job);
+            // 
             // JobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,6 +356,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.recommendedDataGridView)).EndInit();
             this.actionTabPage.ResumeLayout(false);
             this.actionTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,6 +388,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn employerColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn ftPtColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn empConColumn;
+        private System.Windows.Forms.BindingSource jobBindingSource;
     }
 }
 

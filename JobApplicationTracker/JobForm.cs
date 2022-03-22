@@ -98,40 +98,32 @@ namespace JobApplicationTracker
             }
         }
 
-        private List<Job> jobsList = new List<Job>();
+        BindingList<Job> jobsBindingList = new BindingList<Job>();
         const string JobsFileName = @"C:\Users\macke\Documents\Otech\PROG2002\JobApplicationTracker\JobData.bin";
 
         private void JobForm_Load(object sender, EventArgs e)
         {
+            // BindingSource jobBindingSource = new BindingSource();
+            
+            // jobDataGridView.DataSource = jobBindingSource;
+            
+            
             if (File.Exists(JobsFileName))
             {
-                Stream openFileStream = File.OpenRead(JobsFileName);
+                FileStream openFileStream = File.OpenRead(JobsFileName);
                 BinaryFormatter deserializer = new BinaryFormatter();
-                jobsList = (List<Job>)deserializer.Deserialize(openFileStream);
+                jobsBindingList = (BindingList<Job>)deserializer.Deserialize(openFileStream);
                 openFileStream.Close();
             }
 
-            foreach (Job job in jobsList)
-            {
-                foreach (DataGridViewRow row in jobDataGridView.Rows)
-                {
-                    int cellIndex = 0;
-
-                    foreach (PropertyInfo prop in job.GetType().GetProperties())
-                    {   
-                        var propValue = (string)prop.GetValue(job, null);
-
-                        row.Cells[cellIndex].Value = propValue;
-
-                        cellIndex++;
-                    }
-                }
-            }
+            jobDataGridView.AutoGenerateColumns = false;
+            jobBindingSource.DataSource = null;
+            jobBindingSource.DataSource = jobsBindingList;
         }
 
         private void JobForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            jobsList = new List<Job>();
+            /*jobsList = new List<Job>();
 
             int cellIndex = 0;
 
@@ -151,19 +143,36 @@ namespace JobApplicationTracker
                 jobsList.Add(job);
 
                 cellIndex = 0;
+            }*/
 
-                /*Job job = new Job(row.Cells[0].Value.ToString(),
-                    row.Cells[1].Value.ToString(),
-                    row.Cells[2].Value.ToString(), 
-                    row.Cells[3].Value.ToString());*/
+            FileStream saveFileStream;
 
-                // jobsList.Add(job);
+            if (File.Exists(JobsFileName))
+            {
+                saveFileStream = File.Create(JobsFileName);
             }
-
-            Stream saveFileStream = File.Create(JobsFileName);
+            else
+            {
+                saveFileStream = File.OpenWrite(JobsFileName);
+            }
             BinaryFormatter serializer = new BinaryFormatter();
-            serializer.Serialize(saveFileStream, jobsList);
+            serializer.Serialize(saveFileStream, jobsBindingList);
             saveFileStream.Close();
+        }
+
+        private void jobDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            jobsBindingList.Clear();
+
+            foreach (DataGridViewRow row in jobDataGridView.Rows)
+            {
+                jobsBindingList.Add(new Job(
+                    row.Cells[0].ToString(),
+                    row.Cells[1].ToString(),
+                    row.Cells[2].ToString(),
+                    row.Cells[3].ToString()
+                ));
+            }
         }
     }
 }
