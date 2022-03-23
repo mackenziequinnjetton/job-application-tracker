@@ -96,10 +96,15 @@ namespace JobApplicationTracker
                 FtPt = ftPt;
                 EmpCon = empCon;
             }
+
+            public Job() { }
         }
 
         BindingList<Job> jobsBindingList = new BindingList<Job>();
+        BindingSource jobBindingSource;
         const string JobsFileName = @"C:\Users\macke\Documents\Otech\PROG2002\JobApplicationTracker\JobData.bin";
+        int ftPtSurveyTrackBarValue;
+        int empConSurveyTrackBarValue;
 
         private void JobForm_Load(object sender, EventArgs e)
         {
@@ -116,42 +121,23 @@ namespace JobApplicationTracker
                 openFileStream.Close();
             }
 
-            jobDataGridView.AutoGenerateColumns = false;
-            // jobBindingSource.DataSource = null;
-            // jobBindingSource.DataSource = jobsBindingList;
+            // jobDataGridView.AutoGenerateColumns = false;
+            jobBindingSource = new BindingSource(jobsBindingList, null);
+            jobBindingSource.AllowNew = true;
             jobDataGridView.DataSource = jobBindingSource;
 
             jobDataGridView.Update();
 
             var valuesForm = new ValuesForm();
             valuesForm.ShowDialog();
+
+            ftPtSurveyTrackBarValue = valuesForm.ftPtSurveyTrackBar.Value;
+            empConSurveyTrackBarValue = valuesForm.empConSurveyTrackBar.Value;
         }
 
         private void JobForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            /*jobsList = new List<Job>();
-
-            int cellIndex = 0;
-
-            foreach(DataGridViewRow row in jobDataGridView.Rows)
-            {
-                Job job = new Job("", "", "", "");
-
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    PropertyInfo[] jobProperties = job.GetType().GetProperties();
-                    
-                    jobProperties[cellIndex].SetValue(job, cell.Value, null);
-
-                    cellIndex++;
-                }
-
-                jobsList.Add(job);
-
-                cellIndex = 0;
-            }*/
-
-            FileStream saveFileStream;
+           FileStream saveFileStream;
 
             if (File.Exists(JobsFileName))
             {
@@ -168,17 +154,15 @@ namespace JobApplicationTracker
 
         private void jobDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            jobsBindingList.Clear();
 
-            foreach (DataGridViewRow row in jobDataGridView.Rows)
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*if (tabControl.SelectedIndex == 2)
             {
-                jobsBindingList.Add(new Job(
-                    row.Cells[0].ToString(),
-                    row.Cells[1].ToString(),
-                    row.Cells[2].ToString(),
-                    row.Cells[3].ToString()
-                ));
-            }
+
+I            }*/
         }
     }
 }
