@@ -117,8 +117,14 @@ namespace JobApplicationTracker
             }
 
             jobDataGridView.AutoGenerateColumns = false;
-            jobBindingSource.DataSource = null;
-            jobBindingSource.DataSource = jobsBindingList;
+            // jobBindingSource.DataSource = null;
+            // jobBindingSource.DataSource = jobsBindingList;
+            jobDataGridView.DataSource = jobBindingSource;
+
+            jobDataGridView.Update();
+
+            var valuesForm = new ValuesForm();
+            valuesForm.ShowDialog();
         }
 
         private void JobForm_FormClosing(object sender, FormClosingEventArgs e)

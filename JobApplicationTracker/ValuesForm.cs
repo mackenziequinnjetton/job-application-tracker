@@ -16,5 +16,13 @@ namespace JobApplicationTracker
         {
             InitializeComponent();
         }
+
+        int ftPtSurveyTrackBarValue = 5;
+        int empConSurveyTrackBarValue = 5;
+
+        private void ftPtSurveyTrackBar_Scroll(object sender, EventArgs e)
+        {
+
+        }
     }
 }

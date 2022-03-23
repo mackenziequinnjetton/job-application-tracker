@@ -129,7 +129,7 @@
             this.ftPtSurveyPanel.Controls.Add(this.ftPtSurveyTrackBar);
             this.ftPtSurveyPanel.Location = new System.Drawing.Point(364, 3);
             this.ftPtSurveyPanel.Name = "ftPtSurveyPanel";
-            this.ftPtSurveyPanel.Size = new System.Drawing.Size(419, 53);
+            this.ftPtSurveyPanel.Size = new System.Drawing.Size(419, 52);
             this.ftPtSurveyPanel.TabIndex = 3;
             // 
             // ftPtSurveyTenLabel
@@ -157,6 +157,7 @@
             this.ftPtSurveyTrackBar.Size = new System.Drawing.Size(369, 45);
             this.ftPtSurveyTrackBar.TabIndex = 1;
             this.ftPtSurveyTrackBar.Value = 5;
+            this.ftPtSurveyTrackBar.Scroll += new System.EventHandler(this.ftPtSurveyTrackBar_Scroll);
             // 
             // empConSurveyLabel
             // 
