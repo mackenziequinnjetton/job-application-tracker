@@ -41,6 +41,7 @@
             this.ftPtSurveyTrackBar = new System.Windows.Forms.TrackBar();
             this.empConSurveyLabel = new System.Windows.Forms.Label();
             this.welcomeLabel = new System.Windows.Forms.Label();
+            this.submitSurveyButton = new System.Windows.Forms.Button();
             this.valuesPanel.SuspendLayout();
             this.surveyTableLayoutPanel.SuspendLayout();
             this.empConSurveyPanel.SuspendLayout();
@@ -51,6 +52,7 @@
             // 
             // valuesPanel
             // 
+            this.valuesPanel.Controls.Add(this.submitSurveyButton);
             this.valuesPanel.Controls.Add(this.surveyTableLayoutPanel);
             this.valuesPanel.Controls.Add(this.welcomeLabel);
             this.valuesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -68,13 +70,12 @@
             this.surveyTableLayoutPanel.Controls.Add(this.ftPtSurveyLabel, 0, 0);
             this.surveyTableLayoutPanel.Controls.Add(this.ftPtSurveyPanel, 1, 0);
             this.surveyTableLayoutPanel.Controls.Add(this.empConSurveyLabel, 0, 1);
-            this.surveyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.surveyTableLayoutPanel.Location = new System.Drawing.Point(0, 16);
             this.surveyTableLayoutPanel.Name = "surveyTableLayoutPanel";
             this.surveyTableLayoutPanel.RowCount = 2;
             this.surveyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.59447F));
             this.surveyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.40553F));
-            this.surveyTableLayoutPanel.Size = new System.Drawing.Size(800, 434);
+            this.surveyTableLayoutPanel.Size = new System.Drawing.Size(800, 405);
             this.surveyTableLayoutPanel.TabIndex = 2;
             // 
             // empConSurveyPanel
@@ -82,7 +83,7 @@
             this.empConSurveyPanel.Controls.Add(this.empConSurveyTenLabel);
             this.empConSurveyPanel.Controls.Add(this.empConSurveyZeroLabel);
             this.empConSurveyPanel.Controls.Add(this.empConSurveyTrackBar);
-            this.empConSurveyPanel.Location = new System.Drawing.Point(364, 62);
+            this.empConSurveyPanel.Location = new System.Drawing.Point(364, 58);
             this.empConSurveyPanel.Name = "empConSurveyPanel";
             this.empConSurveyPanel.Size = new System.Drawing.Size(419, 53);
             this.empConSurveyPanel.TabIndex = 5;
@@ -129,7 +130,7 @@
             this.ftPtSurveyPanel.Controls.Add(this.ftPtSurveyTrackBar);
             this.ftPtSurveyPanel.Location = new System.Drawing.Point(364, 3);
             this.ftPtSurveyPanel.Name = "ftPtSurveyPanel";
-            this.ftPtSurveyPanel.Size = new System.Drawing.Size(419, 52);
+            this.ftPtSurveyPanel.Size = new System.Drawing.Size(419, 49);
             this.ftPtSurveyPanel.TabIndex = 3;
             // 
             // ftPtSurveyTenLabel
@@ -162,7 +163,7 @@
             // empConSurveyLabel
             // 
             this.empConSurveyLabel.AutoSize = true;
-            this.empConSurveyLabel.Location = new System.Drawing.Point(3, 59);
+            this.empConSurveyLabel.Location = new System.Drawing.Point(3, 55);
             this.empConSurveyLabel.Name = "empConSurveyLabel";
             this.empConSurveyLabel.Size = new System.Drawing.Size(353, 13);
             this.empConSurveyLabel.TabIndex = 4;
@@ -178,6 +179,16 @@
             this.welcomeLabel.TabIndex = 0;
             this.welcomeLabel.Text = "Welcome! So we can give you appropriate job recommendations, please fill out this" +
     " form indicating your career preferences and values.";
+            // 
+            // submitSurveyButton
+            // 
+            this.submitSurveyButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.submitSurveyButton.Location = new System.Drawing.Point(0, 427);
+            this.submitSurveyButton.Name = "submitSurveyButton";
+            this.submitSurveyButton.Size = new System.Drawing.Size(800, 23);
+            this.submitSurveyButton.TabIndex = 3;
+            this.submitSurveyButton.Text = "Submit";
+            this.submitSurveyButton.UseVisualStyleBackColor = true;
             // 
             // ValuesForm
             // 
@@ -216,5 +227,6 @@
         private System.Windows.Forms.Label empConSurveyZeroLabel;
         private System.Windows.Forms.TrackBar empConSurveyTrackBar;
         private System.Windows.Forms.Label empConSurveyLabel;
+        private System.Windows.Forms.Button submitSurveyButton;
     }
 }
