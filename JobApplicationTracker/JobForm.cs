@@ -105,6 +105,8 @@ namespace JobApplicationTracker
         const string JobsFileName = @"C:\Users\macke\Documents\Otech\PROG2002\JobApplicationTracker\JobData.bin";
         public static int ftPtSurveyTrackBarValue;
         public static int empConSurveyTrackBarValue;
+        string ftPtFilterValue;
+        string empConFilterValue;
 
         private void JobForm_Load(object sender, EventArgs e)
         {
@@ -152,9 +154,33 @@ namespace JobApplicationTracker
             saveFileStream.Close();
         }
 
+        private int IncrementJobScore(DataGridViewRow job, string filterValue,
+            int cellIndex, int trackBarValue)
+        {
+            if (filterValue == job.Cells[cellIndex].Value.ToString())
+            {
+                return trackBarValue;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        
         private void RecommendJobs()
         {
+            DataGridViewRow highest;
+            DataGridViewRow secondHighest;
+            DataGridViewRow thirdHighest;
 
+            var jobScoreList = new List<int> { jobDataGridView.Rows.Count };
+            
+            foreach (DataGridViewRow job in jobDataGridView.Rows)
+            {
+                var jobScore = 0;
+
+                jobScore + 
+            }
         }
         
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -163,6 +189,16 @@ namespace JobApplicationTracker
             {
                 RecommendJobs();
             }
+        }
+
+        private void ftPtFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ftPtFilterValue = ftPtFilterComboBox.SelectedValue.ToString();
+        }
+
+        private void empConFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            empConFilterValue = empConFilterComboBox.SelectedValue.ToString();
         }
     }
 }

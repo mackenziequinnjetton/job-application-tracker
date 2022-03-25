@@ -82,7 +82,7 @@
             this.filterTabPage.Controls.Add(this.filterTableLayoutPanel);
             this.filterTabPage.Location = new System.Drawing.Point(4, 22);
             this.filterTabPage.Name = "filterTabPage";
-            this.filterTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.filterTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.filterTabPage.Size = new System.Drawing.Size(792, 424);
             this.filterTabPage.TabIndex = 3;
             this.filterTabPage.Text = "Filters";
@@ -137,6 +137,7 @@
             this.ftPtFilterComboBox.Name = "ftPtFilterComboBox";
             this.ftPtFilterComboBox.Size = new System.Drawing.Size(121, 21);
             this.ftPtFilterComboBox.TabIndex = 1;
+            this.ftPtFilterComboBox.SelectedIndexChanged += new System.EventHandler(this.ftPtFilterComboBox_SelectedIndexChanged);
             // 
             // empConFilterLabel
             // 
@@ -157,13 +158,14 @@
             this.empConFilterComboBox.Name = "empConFilterComboBox";
             this.empConFilterComboBox.Size = new System.Drawing.Size(121, 21);
             this.empConFilterComboBox.TabIndex = 3;
+            this.empConFilterComboBox.SelectedIndexChanged += new System.EventHandler(this.empConFilterComboBox_SelectedIndexChanged);
             // 
             // jobTabPage
             // 
             this.jobTabPage.Controls.Add(this.jobDataGridView);
             this.jobTabPage.Location = new System.Drawing.Point(4, 22);
             this.jobTabPage.Name = "jobTabPage";
-            this.jobTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.jobTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.jobTabPage.Size = new System.Drawing.Size(792, 424);
             this.jobTabPage.TabIndex = 0;
             this.jobTabPage.Text = "Job List";
@@ -226,7 +228,7 @@
             this.recommendedTabPage.Controls.Add(this.recommendedDataGridView);
             this.recommendedTabPage.Location = new System.Drawing.Point(4, 22);
             this.recommendedTabPage.Name = "recommendedTabPage";
-            this.recommendedTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.recommendedTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.recommendedTabPage.Size = new System.Drawing.Size(792, 424);
             this.recommendedTabPage.TabIndex = 1;
             this.recommendedTabPage.Text = "Recommended Jobs";
