@@ -17,13 +17,10 @@ namespace JobApplicationTracker
             InitializeComponent();
         }
 
-        int ftPtSurveyTrackBarValue;
-        int empConSurveyTrackBarValue;
-
         private void submitSurveyButton_Click(object sender, EventArgs e)
         {
-            ftPtSurveyTrackBarValue = ftPtSurveyTrackBar.Value;
-            empConSurveyTrackBarValue = empConSurveyTrackBar.Value;
+            JobForm.ftPtSurveyTrackBarValue = ftPtSurveyTrackBar.Value;
+            JobForm.empConSurveyTrackBarValue = empConSurveyTrackBar.Value;
 
             Close();
         }

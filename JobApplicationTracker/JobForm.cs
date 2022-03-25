@@ -103,8 +103,8 @@ namespace JobApplicationTracker
         BindingList<Job> jobsBindingList = new BindingList<Job>();
         BindingSource jobBindingSource;
         const string JobsFileName = @"C:\Users\macke\Documents\Otech\PROG2002\JobApplicationTracker\JobData.bin";
-        int ftPtSurveyTrackBarValue;
-        int empConSurveyTrackBarValue;
+        public static int ftPtSurveyTrackBarValue;
+        public static int empConSurveyTrackBarValue;
 
         private void JobForm_Load(object sender, EventArgs e)
         {
@@ -152,12 +152,17 @@ namespace JobApplicationTracker
             saveFileStream.Close();
         }
 
+        private void RecommendJobs()
+        {
+
+        }
+        
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*if (tabControl.SelectedIndex == 2)
+            if (tabControl.SelectedIndex == 2)
             {
-
-I            }*/
+                RecommendJobs();
+            }
         }
     }
 }
