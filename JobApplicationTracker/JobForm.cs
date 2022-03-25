@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -173,13 +174,38 @@ namespace JobApplicationTracker
             DataGridViewRow secondHighest;
             DataGridViewRow thirdHighest;
 
-            var jobScoreList = new List<int> { jobDataGridView.Rows.Count };
+            var jobScoreDict = new OrderedDictionary { };
+
+            int jobIndex = 0;
             
             foreach (DataGridViewRow job in jobDataGridView.Rows)
             {
                 var jobScore = 0;
 
-                jobScore + 
+                jobScore += IncrementJobScore(job, ftPtFilterValue, 2, 
+                    ftPtSurveyTrackBarValue);
+
+                jobScore += IncrementJobScore(job, empConFilterValue, 3,
+                    empConSurveyTrackBarValue);
+
+                jobScoreDict.Add(job, jobScore);
+
+                jobIndex++;
+            }
+
+            var highestScores = 
+                from entry in jobScoreDict
+                orderby entry.Value descending
+                select entry;
+
+            recommendedDataGridView.Rows.Clear();
+
+            if (jobScoreDict.Count > 3)
+            {
+                for (var i = 0; i < 3; i++)
+                {
+                    recommendedDataGridView.Rows.Add(highestScores[i]);
+                }
             }
         }
         
