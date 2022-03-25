@@ -152,11 +152,6 @@ namespace JobApplicationTracker
             saveFileStream.Close();
         }
 
-        private void jobDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*if (tabControl.SelectedIndex == 2)
