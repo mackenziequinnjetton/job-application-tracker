@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -170,11 +169,7 @@ namespace JobApplicationTracker
         
         private void RecommendJobs()
         {
-            DataGridViewRow highest;
-            DataGridViewRow secondHighest;
-            DataGridViewRow thirdHighest;
-
-            var jobScoreDict = new OrderedDictionary { };
+            var jobScoreDict = new Dictionary<DataGridViewRow, int> { };
 
             int jobIndex = 0;
             
@@ -194,17 +189,17 @@ namespace JobApplicationTracker
             }
 
             var highestScores = 
-                from entry in jobScoreDict
+                (from entry in jobScoreDict
                 orderby entry.Value descending
-                select entry;
+                select entry).Take(3);
 
             recommendedDataGridView.Rows.Clear();
 
             if (jobScoreDict.Count > 3)
             {
-                for (var i = 0; i < 3; i++)
+                foreach (var entry in highestScores)
                 {
-                    recommendedDataGridView.Rows.Add(highestScores[i]);
+                    recommendedDataGridView.Rows.Add(entry);
                 }
             }
         }
