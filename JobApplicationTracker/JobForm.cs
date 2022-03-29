@@ -157,7 +157,9 @@ namespace JobApplicationTracker
         private int IncrementJobScore(DataGridViewRow job, string filterValue,
             int cellIndex, int trackBarValue)
         {
-            if (filterValue == job.Cells[cellIndex].Value.ToString())
+            var cellValue = job.Cells[cellIndex].Value;
+            
+            if (cellValue != null && filterValue == cellValue.ToString())
             {
                 return trackBarValue;
             }
@@ -189,17 +191,26 @@ namespace JobApplicationTracker
             }
 
             var highestScores = 
-                (from entry in jobScoreDict
+                from entry in jobScoreDict
                 orderby entry.Value descending
-                select entry).Take(3);
+                select entry;
 
             recommendedDataGridView.Rows.Clear();
 
             if (jobScoreDict.Count > 3)
             {
+                foreach (var entry in highestScores.Take(3))
+                {
+                    recommendedDataGridView.Rows.Add(
+                        entry.Key.Cells[0].Value.ToString(), 
+                        entry.Key.Cells[1].Value.ToString());
+                }
+            } 
+            else
+            {
                 foreach (var entry in highestScores)
                 {
-                    recommendedDataGridView.Rows.Add(entry);
+                    recommendedDataGridView.Rows.Add(entry.Key.Clone());
                 }
             }
         }
@@ -214,12 +225,12 @@ namespace JobApplicationTracker
 
         private void ftPtFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ftPtFilterValue = ftPtFilterComboBox.SelectedValue.ToString();
+            ftPtFilterValue = ftPtFilterComboBox.SelectedItem.ToString();
         }
 
         private void empConFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            empConFilterValue = empConFilterComboBox.SelectedValue.ToString();
+            empConFilterValue = empConFilterComboBox.SelectedItem.ToString();
         }
     }
 }
