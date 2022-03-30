@@ -30,7 +30,7 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.filterTabPage = new System.Windows.Forms.TabPage();
-            this.filterApplyButton = new System.Windows.Forms.Button();
+            this.redoCareerValuesButton = new System.Windows.Forms.Button();
             this.filterTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ftPtFilterLabel = new System.Windows.Forms.Label();
             this.ftPtFilterComboBox = new System.Windows.Forms.ComboBox();
@@ -78,7 +78,7 @@
             // 
             // filterTabPage
             // 
-            this.filterTabPage.Controls.Add(this.filterApplyButton);
+            this.filterTabPage.Controls.Add(this.redoCareerValuesButton);
             this.filterTabPage.Controls.Add(this.filterTableLayoutPanel);
             this.filterTabPage.Location = new System.Drawing.Point(4, 22);
             this.filterTabPage.Name = "filterTabPage";
@@ -88,15 +88,16 @@
             this.filterTabPage.Text = "Filters";
             this.filterTabPage.UseVisualStyleBackColor = true;
             // 
-            // filterApplyButton
+            // redoCareerValuesButton
             // 
-            this.filterApplyButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.filterApplyButton.Location = new System.Drawing.Point(3, 398);
-            this.filterApplyButton.Name = "filterApplyButton";
-            this.filterApplyButton.Size = new System.Drawing.Size(786, 23);
-            this.filterApplyButton.TabIndex = 1;
-            this.filterApplyButton.Text = "Apply";
-            this.filterApplyButton.UseVisualStyleBackColor = true;
+            this.redoCareerValuesButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.redoCareerValuesButton.Location = new System.Drawing.Point(3, 398);
+            this.redoCareerValuesButton.Name = "redoCareerValuesButton";
+            this.redoCareerValuesButton.Size = new System.Drawing.Size(786, 23);
+            this.redoCareerValuesButton.TabIndex = 1;
+            this.redoCareerValuesButton.Text = "Reselect Career Values";
+            this.redoCareerValuesButton.UseVisualStyleBackColor = true;
+            this.redoCareerValuesButton.Click += new System.EventHandler(this.redoCareerValuesButton_Click);
             // 
             // filterTableLayoutPanel
             // 
@@ -372,7 +373,7 @@
         private System.Windows.Forms.DataGridView jobDataGridView;
         private System.Windows.Forms.TableLayoutPanel filterTableLayoutPanel;
         private System.Windows.Forms.Label ftPtFilterLabel;
-        private System.Windows.Forms.Button filterApplyButton;
+        private System.Windows.Forms.Button redoCareerValuesButton;
         private System.Windows.Forms.ComboBox ftPtFilterComboBox;
         private System.Windows.Forms.Label empConFilterLabel;
         private System.Windows.Forms.ComboBox empConFilterComboBox;

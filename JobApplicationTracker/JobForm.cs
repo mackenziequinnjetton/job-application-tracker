@@ -253,5 +253,16 @@ namespace JobApplicationTracker
         {
             empConFilterValue = empConFilterComboBox.SelectedItem.ToString();
         }
+
+        private void redoCareerValuesButton_Click(object sender, EventArgs e)
+        {
+            var valuesForm = new ValuesForm();
+            valuesForm.ShowDialog();
+
+            valuesList = GetValuesList();
+
+            ftPtSurveyTrackBarValue = valuesList[0];
+            empConSurveyTrackBarValue = valuesList[1];
+        }
     }
 }
