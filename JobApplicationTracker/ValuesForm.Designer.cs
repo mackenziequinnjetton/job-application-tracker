@@ -57,7 +57,7 @@
             this.valuesPanel.Controls.Add(this.welcomeLabel);
             this.valuesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.valuesPanel.Location = new System.Drawing.Point(0, 0);
-            this.valuesPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.valuesPanel.Margin = new System.Windows.Forms.Padding(4);
             this.valuesPanel.Name = "valuesPanel";
             this.valuesPanel.Size = new System.Drawing.Size(1067, 554);
             this.valuesPanel.TabIndex = 0;
@@ -66,7 +66,7 @@
             // 
             this.submitSurveyButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.submitSurveyButton.Location = new System.Drawing.Point(0, 526);
-            this.submitSurveyButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.submitSurveyButton.Margin = new System.Windows.Forms.Padding(4);
             this.submitSurveyButton.Name = "submitSurveyButton";
             this.submitSurveyButton.Size = new System.Drawing.Size(1067, 28);
             this.submitSurveyButton.TabIndex = 3;
@@ -84,7 +84,7 @@
             this.surveyTableLayoutPanel.Controls.Add(this.ftPtSurveyPanel, 1, 0);
             this.surveyTableLayoutPanel.Controls.Add(this.empConSurveyLabel, 0, 1);
             this.surveyTableLayoutPanel.Location = new System.Drawing.Point(0, 20);
-            this.surveyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.surveyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.surveyTableLayoutPanel.Name = "surveyTableLayoutPanel";
             this.surveyTableLayoutPanel.RowCount = 2;
             this.surveyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.59447F));
@@ -98,7 +98,7 @@
             this.empConSurveyPanel.Controls.Add(this.empConSurveyZeroLabel);
             this.empConSurveyPanel.Controls.Add(this.empConSurveyTrackBar);
             this.empConSurveyPanel.Location = new System.Drawing.Point(485, 71);
-            this.empConSurveyPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.empConSurveyPanel.Margin = new System.Windows.Forms.Padding(4);
             this.empConSurveyPanel.Name = "empConSurveyPanel";
             this.empConSurveyPanel.Size = new System.Drawing.Size(559, 65);
             this.empConSurveyPanel.TabIndex = 5;
@@ -126,7 +126,7 @@
             // empConSurveyTrackBar
             // 
             this.empConSurveyTrackBar.Location = new System.Drawing.Point(25, 0);
-            this.empConSurveyTrackBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.empConSurveyTrackBar.Margin = new System.Windows.Forms.Padding(4);
             this.empConSurveyTrackBar.Name = "empConSurveyTrackBar";
             this.empConSurveyTrackBar.Size = new System.Drawing.Size(492, 56);
             this.empConSurveyTrackBar.TabIndex = 1;
@@ -148,7 +148,7 @@
             this.ftPtSurveyPanel.Controls.Add(this.ftPtSurveyZeroLabel);
             this.ftPtSurveyPanel.Controls.Add(this.ftPtSurveyTrackBar);
             this.ftPtSurveyPanel.Location = new System.Drawing.Point(485, 4);
-            this.ftPtSurveyPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ftPtSurveyPanel.Margin = new System.Windows.Forms.Padding(4);
             this.ftPtSurveyPanel.Name = "ftPtSurveyPanel";
             this.ftPtSurveyPanel.Size = new System.Drawing.Size(559, 59);
             this.ftPtSurveyPanel.TabIndex = 3;
@@ -176,7 +176,7 @@
             // ftPtSurveyTrackBar
             // 
             this.ftPtSurveyTrackBar.Location = new System.Drawing.Point(25, 0);
-            this.ftPtSurveyTrackBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ftPtSurveyTrackBar.Margin = new System.Windows.Forms.Padding(4);
             this.ftPtSurveyTrackBar.Name = "ftPtSurveyTrackBar";
             this.ftPtSurveyTrackBar.Size = new System.Drawing.Size(492, 56);
             this.ftPtSurveyTrackBar.TabIndex = 1;
@@ -209,8 +209,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ControlBox = false;
             this.Controls.Add(this.valuesPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ValuesForm";
             this.Text = "Career Values";
             this.valuesPanel.ResumeLayout(false);

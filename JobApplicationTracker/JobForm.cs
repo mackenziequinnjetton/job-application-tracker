@@ -101,45 +101,66 @@ namespace JobApplicationTracker
         }
 
         BindingList<Job> jobsBindingList = new BindingList<Job>();
+        List<int> valuesList;
         BindingSource jobBindingSource;
         const string JobsFileName = @"C:\Users\macke\Documents\Otech\PROG2002\JobApplicationTracker\JobData.bin";
+        const string ValuesFileName = @"C:\Users\macke\Documents\Otech\PROG2002\JobApplicationTracker\ValuesData.bin";
         public static int ftPtSurveyTrackBarValue;
         public static int empConSurveyTrackBarValue;
         string ftPtFilterValue;
         string empConFilterValue;
 
+        private List<int> GetValuesList()
+        {
+            FileStream openFileStream = File.OpenRead(ValuesFileName);
+            BinaryFormatter deserializer = new BinaryFormatter();
+            valuesList = (List<int>)deserializer.Deserialize(openFileStream);
+            openFileStream.Close();
+            return valuesList;
+        }
+        
         private void JobForm_Load(object sender, EventArgs e)
         {
             // BindingSource jobBindingSource = new BindingSource();
-            
+
             // jobDataGridView.DataSource = jobBindingSource;
-            
-            
+
+            FileStream openFileStream;
+            BinaryFormatter deserializer = new BinaryFormatter();
+
             if (File.Exists(JobsFileName))
             {
-                FileStream openFileStream = File.OpenRead(JobsFileName);
-                BinaryFormatter deserializer = new BinaryFormatter();
+                openFileStream = File.OpenRead(JobsFileName);
                 jobsBindingList = (BindingList<Job>)deserializer.Deserialize(openFileStream);
                 openFileStream.Close();
             }
 
-            // jobDataGridView.AutoGenerateColumns = false;
             jobBindingSource = new BindingSource(jobsBindingList, null);
             jobBindingSource.AllowNew = true;
             jobDataGridView.DataSource = jobBindingSource;
 
             jobDataGridView.Update();
 
-            var valuesForm = new ValuesForm();
-            valuesForm.ShowDialog();
+            if (File.Exists(ValuesFileName))
+            {
+                valuesList = GetValuesList();
+            }
+            else
+            {
+                var valuesForm = new ValuesForm();
+                valuesForm.ShowDialog();
 
-            ftPtSurveyTrackBarValue = valuesForm.ftPtSurveyTrackBar.Value;
-            empConSurveyTrackBarValue = valuesForm.empConSurveyTrackBar.Value;
+                valuesList = GetValuesList();
+            }
+
+            ftPtSurveyTrackBarValue = valuesList[0];
+            empConSurveyTrackBarValue = valuesList[1];
         }
 
         private void JobForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-           FileStream saveFileStream;
+            FileStream saveFileStream;
+            BinaryFormatter serializer = new BinaryFormatter();
 
             if (File.Exists(JobsFileName))
             {
@@ -149,7 +170,7 @@ namespace JobApplicationTracker
             {
                 saveFileStream = File.OpenWrite(JobsFileName);
             }
-            BinaryFormatter serializer = new BinaryFormatter();
+
             serializer.Serialize(saveFileStream, jobsBindingList);
             saveFileStream.Close();
         }
