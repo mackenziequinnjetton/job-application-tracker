@@ -38,10 +38,6 @@
             this.empConFilterComboBox = new System.Windows.Forms.ComboBox();
             this.jobTabPage = new System.Windows.Forms.TabPage();
             this.jobDataGridView = new System.Windows.Forms.DataGridView();
-            this.positionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ftPtColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.empConColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.recommendedTabPage = new System.Windows.Forms.TabPage();
             this.recommendedDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +49,11 @@
             this.actionCheckBox2 = new System.Windows.Forms.CheckBox();
             this.actionCheckBox1 = new System.Windows.Forms.CheckBox();
             this.actionListView = new System.Windows.Forms.ListView();
+            this.positionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ftPtColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.empConColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.appliedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControl.SuspendLayout();
             this.filterTabPage.SuspendLayout();
             this.filterTableLayoutPanel.SuspendLayout();
@@ -180,49 +181,14 @@
             this.positionColumn,
             this.employerColumn,
             this.ftPtColumn,
-            this.empConColumn});
+            this.empConColumn,
+            this.appliedColumn});
             this.jobDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jobDataGridView.Location = new System.Drawing.Point(3, 3);
             this.jobDataGridView.Name = "jobDataGridView";
             this.jobDataGridView.RowHeadersWidth = 51;
             this.jobDataGridView.Size = new System.Drawing.Size(786, 418);
             this.jobDataGridView.TabIndex = 0;
-            // 
-            // positionColumn
-            // 
-            this.positionColumn.DataPropertyName = "PositionTitle";
-            this.positionColumn.HeaderText = "Position Title";
-            this.positionColumn.MinimumWidth = 6;
-            this.positionColumn.Name = "positionColumn";
-            // 
-            // employerColumn
-            // 
-            this.employerColumn.DataPropertyName = "Employer";
-            this.employerColumn.HeaderText = "Employer";
-            this.employerColumn.MinimumWidth = 6;
-            this.employerColumn.Name = "employerColumn";
-            // 
-            // ftPtColumn
-            // 
-            this.ftPtColumn.DataPropertyName = "FtPt";
-            this.ftPtColumn.HeaderText = "Full Time/Part Time";
-            this.ftPtColumn.Items.AddRange(new object[] {
-            "Full Time",
-            "Part Time"});
-            this.ftPtColumn.MinimumWidth = 6;
-            this.ftPtColumn.Name = "ftPtColumn";
-            // 
-            // empConColumn
-            // 
-            this.empConColumn.DataPropertyName = "EmpCon";
-            this.empConColumn.HeaderText = "Employee/Contractor";
-            this.empConColumn.Items.AddRange(new object[] {
-            "Employee",
-            "Contractor"});
-            this.empConColumn.MinimumWidth = 6;
-            this.empConColumn.Name = "empConColumn";
-            this.empConColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.empConColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // recommendedTabPage
             // 
@@ -336,6 +302,47 @@
             this.actionListView.TabIndex = 0;
             this.actionListView.UseCompatibleStateImageBehavior = false;
             // 
+            // positionColumn
+            // 
+            this.positionColumn.DataPropertyName = "PositionTitle";
+            this.positionColumn.HeaderText = "Position Title";
+            this.positionColumn.MinimumWidth = 6;
+            this.positionColumn.Name = "positionColumn";
+            // 
+            // employerColumn
+            // 
+            this.employerColumn.DataPropertyName = "Employer";
+            this.employerColumn.HeaderText = "Employer";
+            this.employerColumn.MinimumWidth = 6;
+            this.employerColumn.Name = "employerColumn";
+            // 
+            // ftPtColumn
+            // 
+            this.ftPtColumn.DataPropertyName = "FtPt";
+            this.ftPtColumn.HeaderText = "Full Time/Part Time";
+            this.ftPtColumn.Items.AddRange(new object[] {
+            "Full Time",
+            "Part Time"});
+            this.ftPtColumn.MinimumWidth = 6;
+            this.ftPtColumn.Name = "ftPtColumn";
+            // 
+            // empConColumn
+            // 
+            this.empConColumn.DataPropertyName = "EmpCon";
+            this.empConColumn.HeaderText = "Employee/Contractor";
+            this.empConColumn.Items.AddRange(new object[] {
+            "Employee",
+            "Contractor"});
+            this.empConColumn.MinimumWidth = 6;
+            this.empConColumn.Name = "empConColumn";
+            this.empConColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.empConColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // appliedColumn
+            // 
+            this.appliedColumn.HeaderText = "Applied";
+            this.appliedColumn.Name = "appliedColumn";
+            // 
             // JobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,6 +395,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn employerColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn ftPtColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn empConColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn appliedColumn;
     }
 }
 
