@@ -271,6 +271,7 @@
             // 
             // idColumn
             // 
+            this.idColumn.DataPropertyName = "IdNumber";
             this.idColumn.HeaderText = "Job ID#";
             this.idColumn.Name = "idColumn";
             this.idColumn.Visible = false;
