@@ -41,12 +41,6 @@
             this.recommendedTabPage = new System.Windows.Forms.TabPage();
             this.recommendedDataGridView = new System.Windows.Forms.DataGridView();
             this.actionTabPage = new System.Windows.Forms.TabPage();
-            this.actionCheckBox5 = new System.Windows.Forms.CheckBox();
-            this.actionCheckBox4 = new System.Windows.Forms.CheckBox();
-            this.actionCheckBox3 = new System.Windows.Forms.CheckBox();
-            this.actionCheckBox2 = new System.Windows.Forms.CheckBox();
-            this.actionCheckBox1 = new System.Windows.Forms.CheckBox();
-            this.actionListView = new System.Windows.Forms.ListView();
             this.positionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ftPtColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -54,7 +48,7 @@
             this.appliedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.recPositionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recEmployerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recAppliedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.actionDataGridView = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.filterTabPage.SuspendLayout();
             this.filterTableLayoutPanel.SuspendLayout();
@@ -63,6 +57,7 @@
             this.recommendedTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recommendedDataGridView)).BeginInit();
             this.actionTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.actionDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -208,8 +203,7 @@
             this.recommendedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.recommendedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.recPositionColumn,
-            this.recEmployerColumn,
-            this.recAppliedColumn});
+            this.recEmployerColumn});
             this.recommendedDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recommendedDataGridView.Location = new System.Drawing.Point(3, 3);
             this.recommendedDataGridView.Name = "recommendedDataGridView";
@@ -219,78 +213,13 @@
             // 
             // actionTabPage
             // 
-            this.actionTabPage.Controls.Add(this.actionCheckBox5);
-            this.actionTabPage.Controls.Add(this.actionCheckBox4);
-            this.actionTabPage.Controls.Add(this.actionCheckBox3);
-            this.actionTabPage.Controls.Add(this.actionCheckBox2);
-            this.actionTabPage.Controls.Add(this.actionCheckBox1);
-            this.actionTabPage.Controls.Add(this.actionListView);
+            this.actionTabPage.Controls.Add(this.actionDataGridView);
             this.actionTabPage.Location = new System.Drawing.Point(4, 22);
             this.actionTabPage.Name = "actionTabPage";
             this.actionTabPage.Size = new System.Drawing.Size(792, 424);
             this.actionTabPage.TabIndex = 2;
             this.actionTabPage.Text = "Action Items";
             this.actionTabPage.UseVisualStyleBackColor = true;
-            // 
-            // actionCheckBox5
-            // 
-            this.actionCheckBox5.AutoSize = true;
-            this.actionCheckBox5.Location = new System.Drawing.Point(3, 99);
-            this.actionCheckBox5.Name = "actionCheckBox5";
-            this.actionCheckBox5.Size = new System.Drawing.Size(88, 17);
-            this.actionCheckBox5.TabIndex = 6;
-            this.actionCheckBox5.Text = "Action Item 5";
-            this.actionCheckBox5.UseVisualStyleBackColor = true;
-            // 
-            // actionCheckBox4
-            // 
-            this.actionCheckBox4.AutoSize = true;
-            this.actionCheckBox4.Location = new System.Drawing.Point(3, 75);
-            this.actionCheckBox4.Name = "actionCheckBox4";
-            this.actionCheckBox4.Size = new System.Drawing.Size(88, 17);
-            this.actionCheckBox4.TabIndex = 5;
-            this.actionCheckBox4.Text = "Action Item 4";
-            this.actionCheckBox4.UseVisualStyleBackColor = true;
-            // 
-            // actionCheckBox3
-            // 
-            this.actionCheckBox3.AutoSize = true;
-            this.actionCheckBox3.Location = new System.Drawing.Point(3, 51);
-            this.actionCheckBox3.Name = "actionCheckBox3";
-            this.actionCheckBox3.Size = new System.Drawing.Size(88, 17);
-            this.actionCheckBox3.TabIndex = 4;
-            this.actionCheckBox3.Text = "Action Item 3";
-            this.actionCheckBox3.UseVisualStyleBackColor = true;
-            // 
-            // actionCheckBox2
-            // 
-            this.actionCheckBox2.AutoSize = true;
-            this.actionCheckBox2.Location = new System.Drawing.Point(3, 27);
-            this.actionCheckBox2.Name = "actionCheckBox2";
-            this.actionCheckBox2.Size = new System.Drawing.Size(88, 17);
-            this.actionCheckBox2.TabIndex = 3;
-            this.actionCheckBox2.Text = "Action Item 2";
-            this.actionCheckBox2.UseVisualStyleBackColor = true;
-            // 
-            // actionCheckBox1
-            // 
-            this.actionCheckBox1.AutoSize = true;
-            this.actionCheckBox1.Location = new System.Drawing.Point(3, 3);
-            this.actionCheckBox1.Name = "actionCheckBox1";
-            this.actionCheckBox1.Size = new System.Drawing.Size(88, 17);
-            this.actionCheckBox1.TabIndex = 2;
-            this.actionCheckBox1.Text = "Action Item 1";
-            this.actionCheckBox1.UseVisualStyleBackColor = true;
-            // 
-            // actionListView
-            // 
-            this.actionListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.actionListView.HideSelection = false;
-            this.actionListView.Location = new System.Drawing.Point(0, 0);
-            this.actionListView.Name = "actionListView";
-            this.actionListView.Size = new System.Drawing.Size(792, 424);
-            this.actionListView.TabIndex = 0;
-            this.actionListView.UseCompatibleStateImageBehavior = false;
             // 
             // positionColumn
             // 
@@ -346,10 +275,15 @@
             this.recEmployerColumn.MinimumWidth = 6;
             this.recEmployerColumn.Name = "recEmployerColumn";
             // 
-            // recAppliedColumn
+            // actionDataGridView
             // 
-            this.recAppliedColumn.HeaderText = "Applied";
-            this.recAppliedColumn.Name = "recAppliedColumn";
+            this.actionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.actionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.actionDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.actionDataGridView.Name = "actionDataGridView";
+            this.actionDataGridView.ReadOnly = true;
+            this.actionDataGridView.Size = new System.Drawing.Size(792, 424);
+            this.actionDataGridView.TabIndex = 0;
             // 
             // JobForm
             // 
@@ -371,7 +305,7 @@
             this.recommendedTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.recommendedDataGridView)).EndInit();
             this.actionTabPage.ResumeLayout(false);
-            this.actionTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.actionDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,9 +316,7 @@
         private System.Windows.Forms.TabPage jobTabPage;
         private System.Windows.Forms.TabPage recommendedTabPage;
         private System.Windows.Forms.TabPage actionTabPage;
-        private System.Windows.Forms.ListView actionListView;
         private System.Windows.Forms.TabPage filterTabPage;
-        private System.Windows.Forms.CheckBox actionCheckBox1;
         private System.Windows.Forms.DataGridView jobDataGridView;
         private System.Windows.Forms.TableLayoutPanel filterTableLayoutPanel;
         private System.Windows.Forms.Label ftPtFilterLabel;
@@ -392,10 +324,6 @@
         private System.Windows.Forms.ComboBox ftPtFilterComboBox;
         private System.Windows.Forms.Label empConFilterLabel;
         private System.Windows.Forms.ComboBox empConFilterComboBox;
-        private System.Windows.Forms.CheckBox actionCheckBox3;
-        private System.Windows.Forms.CheckBox actionCheckBox2;
-        private System.Windows.Forms.CheckBox actionCheckBox5;
-        private System.Windows.Forms.CheckBox actionCheckBox4;
         private System.Windows.Forms.DataGridView recommendedDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employerColumn;
@@ -404,7 +332,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn appliedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn recPositionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn recEmployerColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn recAppliedColumn;
+        private System.Windows.Forms.DataGridView actionDataGridView;
     }
 }
 
