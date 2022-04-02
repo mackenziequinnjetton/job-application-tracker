@@ -207,6 +207,7 @@
             this.recommendedDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recommendedDataGridView.Location = new System.Drawing.Point(3, 3);
             this.recommendedDataGridView.Name = "recommendedDataGridView";
+            this.recommendedDataGridView.ReadOnly = true;
             this.recommendedDataGridView.RowHeadersWidth = 51;
             this.recommendedDataGridView.Size = new System.Drawing.Size(786, 418);
             this.recommendedDataGridView.TabIndex = 1;
