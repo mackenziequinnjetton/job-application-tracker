@@ -169,28 +169,47 @@ namespace JobApplicationTracker
         {
             var jobsWithoutIds =
                 from DataGridViewRow row in jobDataGridView.Rows
-                where row.Cells[0] == null
+                where row.Cells[0] == null || (int)row.Cells[0].Value == 0
+                select row;
+
+            var jobsWithIds =
+                from DataGridViewRow row in jobDataGridView.Rows
+                where row.Cells[0] != null || (int)row.Cells[0].Value != 0
                 select row;
 
             var random = new Random();
-            int rnum; 
-            
+
             foreach (var job in jobsWithoutIds)
             {
-                rnum = random.Next(1, 999);
+                int rnum;
+                bool rnumFound;
 
-                while (true)
+                do
                 {
-                    foreach(var row in jobDataGridView.Rows)
-                    {
+                    rnum = random.Next(1, 999);
+                    rnumFound = false;
 
+                    foreach (DataGridViewRow row in jobsWithIds)
+                    {
+                        var rowIdValue = (int)row.Cells[0].Value;
+
+                        if (rowIdValue == rnum)
+                        {
+                            rnumFound = true;
+                            break;
+                        }
                     }
                 }
+                while (rnumFound);
+
+                job.Cells[0].Value = rnum;
             }
         }
-        
+
         private void JobForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            AddJobIds();
+
             FileStream saveFileStream;
             BinaryFormatter serializer = new BinaryFormatter();
 
@@ -303,6 +322,11 @@ namespace JobApplicationTracker
 
             ftPtSurveyTrackBarValue = valuesList[0];
             empConSurveyTrackBarValue = valuesList[1];
+        }
+
+        private void jobDataGridView_Leave(object sender, EventArgs e)
+        {
+            AddJobIds();
         }
     }
 }

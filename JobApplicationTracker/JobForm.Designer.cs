@@ -189,6 +189,7 @@
             this.jobDataGridView.RowHeadersWidth = 51;
             this.jobDataGridView.Size = new System.Drawing.Size(786, 418);
             this.jobDataGridView.TabIndex = 0;
+            this.jobDataGridView.Leave += new System.EventHandler(this.jobDataGridView_Leave);
             // 
             // recommendedTabPage
             // 
@@ -274,7 +275,6 @@
             this.idColumn.DataPropertyName = "IdNumber";
             this.idColumn.HeaderText = "Job ID#";
             this.idColumn.Name = "idColumn";
-            this.idColumn.Visible = false;
             // 
             // positionColumn
             // 
