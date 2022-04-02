@@ -200,8 +200,14 @@ namespace JobApplicationTracker
             var jobScoreDict = new Dictionary<DataGridViewRow, int> { };
 
             int jobIndex = 0;
+
+            var unappliedJobs =
+                from DataGridViewRow row in jobDataGridView.Rows
+                where row.Cells[4].Value != null 
+                && (bool)row.Cells[4].Value == false
+                select row;
             
-            foreach (DataGridViewRow job in jobDataGridView.Rows)
+            foreach (DataGridViewRow job in unappliedJobs)
             {
                 var jobScore = 0;
 
@@ -236,7 +242,9 @@ namespace JobApplicationTracker
             {
                 foreach (var entry in highestScores)
                 {
-                    recommendedDataGridView.Rows.Add(entry.Key.Clone());
+                    recommendedDataGridView.Rows.Add(
+                        entry.Key.Cells[0].Value.ToString(),
+                        entry.Key.Cells[1].Value.ToString());
                 }
             }
         }
