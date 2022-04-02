@@ -85,16 +85,21 @@ namespace JobApplicationTracker
             public string Employer { get; set; }
             public string FtPt { get; set; }
             public string EmpCon { get; set; }
+            public bool Applied { get; set; }
 
-            public Job(string positionTitle, 
+            public Job(
+                string positionTitle, 
                 string employer, 
                 string ftPt, 
-                string empCon)
+                string empCon,
+                bool applied
+                )
             {
                 PositionTitle = positionTitle;
                 Employer = employer;
                 FtPt = ftPt;
                 EmpCon = empCon;
+                Applied = applied;
             }
 
             public Job() { }

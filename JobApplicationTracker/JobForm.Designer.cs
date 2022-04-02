@@ -340,6 +340,7 @@
             // 
             // appliedColumn
             // 
+            this.appliedColumn.DataPropertyName = "Applied";
             this.appliedColumn.HeaderText = "Applied";
             this.appliedColumn.Name = "appliedColumn";
             // 
