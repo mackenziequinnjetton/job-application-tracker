@@ -81,6 +81,7 @@ namespace JobApplicationTracker
         [Serializable()]
         public class Job
         {
+            public int IdNumber { get; set; }
             public string PositionTitle { get; set; }
             public string Employer { get; set; }
             public string FtPt { get; set; }
@@ -88,6 +89,7 @@ namespace JobApplicationTracker
             public bool Applied { get; set; }
 
             public Job(
+                int idNumber,
                 string positionTitle, 
                 string employer, 
                 string ftPt, 
@@ -95,6 +97,7 @@ namespace JobApplicationTracker
                 bool applied
                 )
             {
+                IdNumber = idNumber;
                 PositionTitle = positionTitle;
                 Employer = employer;
                 FtPt = ftPt;
@@ -162,6 +165,30 @@ namespace JobApplicationTracker
             empConSurveyTrackBarValue = valuesList[1];
         }
 
+        private void AddJobIds()
+        {
+            var jobsWithoutIds =
+                from DataGridViewRow row in jobDataGridView.Rows
+                where row.Cells[0] == null
+                select row;
+
+            var random = new Random();
+            int rnum; 
+            
+            foreach (var job in jobsWithoutIds)
+            {
+                rnum = random.Next(1, 999);
+
+                while (true)
+                {
+                    foreach(var row in jobDataGridView.Rows)
+                    {
+
+                    }
+                }
+            }
+        }
+        
         private void JobForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             FileStream saveFileStream;
@@ -203,8 +230,8 @@ namespace JobApplicationTracker
 
             var unappliedJobs =
                 from DataGridViewRow row in jobDataGridView.Rows
-                where row.Cells[4].Value != null 
-                && (bool)row.Cells[4].Value == false
+                where row.Cells[5].Value != null 
+                && (bool)row.Cells[5].Value == false
                 select row;
             
             foreach (DataGridViewRow job in unappliedJobs)
@@ -234,8 +261,8 @@ namespace JobApplicationTracker
                 foreach (var entry in highestScores.Take(3))
                 {
                     recommendedDataGridView.Rows.Add(
-                        entry.Key.Cells[0].Value.ToString(), 
-                        entry.Key.Cells[1].Value.ToString());
+                        entry.Key.Cells[1].Value.ToString(), 
+                        entry.Key.Cells[2].Value.ToString());
                 }
             } 
             else
@@ -243,8 +270,8 @@ namespace JobApplicationTracker
                 foreach (var entry in highestScores)
                 {
                     recommendedDataGridView.Rows.Add(
-                        entry.Key.Cells[0].Value.ToString(),
-                        entry.Key.Cells[1].Value.ToString());
+                        entry.Key.Cells[1].Value.ToString(),
+                        entry.Key.Cells[2].Value.ToString());
                 }
             }
         }

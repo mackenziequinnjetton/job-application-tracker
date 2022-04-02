@@ -41,14 +41,17 @@
             this.recommendedTabPage = new System.Windows.Forms.TabPage();
             this.recommendedDataGridView = new System.Windows.Forms.DataGridView();
             this.actionTabPage = new System.Windows.Forms.TabPage();
+            this.recPositionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recEmployerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actionDataGridView = new System.Windows.Forms.DataGridView();
+            this.actionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.completedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ftPtColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.empConColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.appliedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.recPositionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recEmployerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actionDataGridView = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.filterTabPage.SuspendLayout();
             this.filterTableLayoutPanel.SuspendLayout();
@@ -174,6 +177,7 @@
             this.jobDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.jobDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.jobDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idColumn,
             this.positionColumn,
             this.employerColumn,
             this.ftPtColumn,
@@ -222,6 +226,55 @@
             this.actionTabPage.Text = "Action Items";
             this.actionTabPage.UseVisualStyleBackColor = true;
             // 
+            // recPositionColumn
+            // 
+            this.recPositionColumn.HeaderText = "Position Title";
+            this.recPositionColumn.MinimumWidth = 6;
+            this.recPositionColumn.Name = "recPositionColumn";
+            // 
+            // recEmployerColumn
+            // 
+            this.recEmployerColumn.HeaderText = "Employer";
+            this.recEmployerColumn.MinimumWidth = 6;
+            this.recEmployerColumn.Name = "recEmployerColumn";
+            // 
+            // actionDataGridView
+            // 
+            this.actionDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.actionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.actionDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.completedColumn,
+            this.actionColumn});
+            this.actionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.actionDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.actionDataGridView.Name = "actionDataGridView";
+            this.actionDataGridView.ReadOnly = true;
+            this.actionDataGridView.Size = new System.Drawing.Size(792, 424);
+            this.actionDataGridView.TabIndex = 0;
+            // 
+            // actionColumn
+            // 
+            this.actionColumn.FillWeight = 194.9239F;
+            this.actionColumn.HeaderText = "Action Items";
+            this.actionColumn.MinimumWidth = 150;
+            this.actionColumn.Name = "actionColumn";
+            this.actionColumn.ReadOnly = true;
+            this.actionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.actionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // completedColumn
+            // 
+            this.completedColumn.FillWeight = 5.076141F;
+            this.completedColumn.HeaderText = "";
+            this.completedColumn.Name = "completedColumn";
+            this.completedColumn.ReadOnly = true;
+            // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "Job ID#";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.Visible = false;
+            // 
             // positionColumn
             // 
             this.positionColumn.DataPropertyName = "PositionTitle";
@@ -264,28 +317,6 @@
             this.appliedColumn.HeaderText = "Applied";
             this.appliedColumn.Name = "appliedColumn";
             // 
-            // recPositionColumn
-            // 
-            this.recPositionColumn.HeaderText = "Position Title";
-            this.recPositionColumn.MinimumWidth = 6;
-            this.recPositionColumn.Name = "recPositionColumn";
-            // 
-            // recEmployerColumn
-            // 
-            this.recEmployerColumn.HeaderText = "Employer";
-            this.recEmployerColumn.MinimumWidth = 6;
-            this.recEmployerColumn.Name = "recEmployerColumn";
-            // 
-            // actionDataGridView
-            // 
-            this.actionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.actionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.actionDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.actionDataGridView.Name = "actionDataGridView";
-            this.actionDataGridView.ReadOnly = true;
-            this.actionDataGridView.Size = new System.Drawing.Size(792, 424);
-            this.actionDataGridView.TabIndex = 0;
-            // 
             // JobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,14 +357,17 @@
         private System.Windows.Forms.Label empConFilterLabel;
         private System.Windows.Forms.ComboBox empConFilterComboBox;
         private System.Windows.Forms.DataGridView recommendedDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn recPositionColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn recEmployerColumn;
+        private System.Windows.Forms.DataGridView actionDataGridView;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn completedColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actionColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employerColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn ftPtColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn empConColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn appliedColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recPositionColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recEmployerColumn;
-        private System.Windows.Forms.DataGridView actionDataGridView;
     }
 }
 
