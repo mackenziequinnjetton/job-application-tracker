@@ -111,9 +111,12 @@ namespace JobApplicationTracker
         BindingList<Job> jobsBindingList = new BindingList<Job>();
         List<int> valuesList;
         BindingSource jobBindingSource;
-        string JobsFileName = Directory.GetCurrentDirectory() + @"\JobData.bin";
-        string ValuesFileName = Directory.GetCurrentDirectory() + @"\ValuesData.bin";
-        string AppDatesFileName = Directory.GetCurrentDirectory() + @"\AppDatesData.bin";
+        string JobsFileName = Application.StartupPath 
+            + @"\JobData.bin";
+        string ValuesFileName = Application.StartupPath
+            + @"\ValuesData.bin";
+        string AppDatesFileName = Application.StartupPath
+            + @"\AppDatesData.bin";
         public static int ftPtSurveyTrackBarValue;
         public static int empConSurveyTrackBarValue;
         string ftPtFilterValue;
@@ -381,7 +384,8 @@ namespace JobApplicationTracker
         {
             if (e.ColumnIndex == appliedColumn.Index)
             {
-                if ((bool)jobDataGridView.CurrentCell.Value == true)
+                if (jobDataGridView.CurrentCell != null 
+                    && (bool)jobDataGridView.CurrentCell.Value == true)
                 {
                     var jobId =
                         (int)jobDataGridView.Rows[e.RowIndex].Cells[0].Value;
