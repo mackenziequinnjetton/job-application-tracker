@@ -169,12 +169,12 @@ namespace JobApplicationTracker
         {
             var jobsWithoutIds =
                 from DataGridViewRow row in jobDataGridView.Rows
-                where row.Cells[0] == null || (int)row.Cells[0].Value == 0
+                where !row.IsNewRow && (row.Cells[0] == null || (int)row.Cells[0].Value == 0)
                 select row;
 
             var jobsWithIds =
                 from DataGridViewRow row in jobDataGridView.Rows
-                where row.Cells[0] != null || (int)row.Cells[0].Value != 0
+                where !row.IsNewRow && row.Cells[0] != null && (int)row.Cells[0].Value != 0
                 select row;
 
             var random = new Random();
