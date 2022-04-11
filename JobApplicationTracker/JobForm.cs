@@ -295,11 +295,26 @@ namespace JobApplicationTracker
             }
         }
         
+        private void GetActionItems()
+        {
+            string positionTitle = "";
+            string employer = "";
+            var FollowUpActionItem = $"Follow up with {positionTitle} at {employer}";
+
+            actionDataGridView.Rows.Clear();
+
+            actionDataGridView.Rows.Add(FollowUpActionItem);
+        }
+
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl.SelectedIndex == 2)
             {
                 RecommendJobs();
+            }
+            else if (tabControl.SelectedIndex == 3)
+            {
+                GetActionItems();
             }
         }
 
