@@ -335,11 +335,28 @@ namespace JobApplicationTracker
         {
             string positionTitle = "";
             string employer = "";
-            var FollowUpActionItem = $"Follow up with {positionTitle} at {employer}";
+            var followUpActionItem = $"Follow up with {positionTitle} at {employer}";
+
+            Dictionary<int, DateTime> tempJobApplicationDates = new Dictionary<int, DateTime>();
+            tempJobApplicationDates.Add(971, new DateTime(2022, 1, 1));
 
             actionDataGridView.Rows.Clear();
 
-            actionDataGridView.Rows.Add(FollowUpActionItem);
+            foreach (var entry in tempJobApplicationDates)
+            {
+                var GetMatchingJob = 
+                    from DataGridViewRow row in jobDataGridView.Rows
+                    where !row.IsNewRow && (int)row.Cells[0].Value == entry.Key
+                    select row;
+
+                foreach (var job in GetMatchingJob)
+                {
+                    positionTitle = (string)job.Cells[1].Value;
+                    employer = (string)job.Cells[2].Value;
+                    
+                    actionDataGridView.Rows.Add(followUpActionItem);
+                }
+            }
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)

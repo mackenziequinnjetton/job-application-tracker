@@ -306,7 +306,7 @@
             // 
             // completedColumn
             // 
-            this.completedColumn.FillWeight = 5.076141F;
+            this.completedColumn.FillWeight = 5.076143F;
             this.completedColumn.HeaderText = "";
             this.completedColumn.Name = "completedColumn";
             this.completedColumn.ReadOnly = true;
@@ -315,7 +315,7 @@
             // 
             this.actionColumn.FillWeight = 194.9239F;
             this.actionColumn.HeaderText = "Action Items";
-            this.actionColumn.MinimumWidth = 150;
+            this.actionColumn.MinimumWidth = 730;
             this.actionColumn.Name = "actionColumn";
             this.actionColumn.ReadOnly = true;
             this.actionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -364,14 +364,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn recPositionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn recEmployerColumn;
         private System.Windows.Forms.DataGridView actionDataGridView;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn completedColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn actionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employerColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn ftPtColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn empConColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn appliedColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn completedColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actionColumn;
     }
 }
 
