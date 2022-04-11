@@ -111,8 +111,9 @@ namespace JobApplicationTracker
         BindingList<Job> jobsBindingList = new BindingList<Job>();
         List<int> valuesList;
         BindingSource jobBindingSource;
-        const string JobsFileName = @"C:\Users\macke\Documents\Otech\PROG2002\JobApplicationTracker\JobData.bin";
-        const string ValuesFileName = @"C:\Users\macke\Documents\Otech\PROG2002\JobApplicationTracker\ValuesData.bin";
+        string JobsFileName = Directory.GetCurrentDirectory() + @"\JobData.bin";
+        string ValuesFileName = Directory.GetCurrentDirectory() + @"\ValuesData.bin";
+        string AppDatesFileName = Directory.GetCurrentDirectory() + @"\AppDatesData.bin";
         public static int ftPtSurveyTrackBarValue;
         public static int empConSurveyTrackBarValue;
         string ftPtFilterValue;
@@ -120,13 +121,30 @@ namespace JobApplicationTracker
         Dictionary<int, DateTime> jobApplicationDates =
             new Dictionary<int, DateTime>();
 
-        private List<int> GetValuesList()
+        private void GetJobsBindingList()
+        {
+            FileStream openFileStream = File.OpenRead(JobsFileName);
+            BinaryFormatter deserializer = new BinaryFormatter();
+            jobsBindingList =
+                (BindingList<Job>)deserializer
+                .Deserialize(openFileStream);
+            openFileStream.Close();
+        }
+        
+        private void GetValuesList()
         {
             FileStream openFileStream = File.OpenRead(ValuesFileName);
             BinaryFormatter deserializer = new BinaryFormatter();
             valuesList = (List<int>)deserializer.Deserialize(openFileStream);
             openFileStream.Close();
-            return valuesList;
+        }
+
+        private void GetAppDatesDict()
+        {
+            FileStream openFileStream = File.OpenRead(AppDatesFileName);
+            BinaryFormatter deserializer = new BinaryFormatter();
+            jobApplicationDates = (Dictionary<int, DateTime>)deserializer.Deserialize(openFileStream);
+            openFileStream.Close();
         }
         
         private void JobForm_Load(object sender, EventArgs e)
@@ -135,16 +153,12 @@ namespace JobApplicationTracker
 
             // jobDataGridView.DataSource = jobBindingSource;
 
-            FileStream openFileStream;
-            BinaryFormatter deserializer = new BinaryFormatter();
+            // FileStream openFileStream;
+            // BinaryFormatter deserializer = new BinaryFormatter();
 
             if (File.Exists(JobsFileName))
             {
-                openFileStream = File.OpenRead(JobsFileName);
-                jobsBindingList = 
-                    (BindingList<Job>)deserializer
-                    .Deserialize(openFileStream);
-                openFileStream.Close();
+                GetJobsBindingList();
             }
 
             jobBindingSource = new BindingSource(jobsBindingList, null);
@@ -155,18 +169,23 @@ namespace JobApplicationTracker
 
             if (File.Exists(ValuesFileName))
             {
-                valuesList = GetValuesList();
+                GetValuesList();
             }
             else
             {
                 var valuesForm = new ValuesForm();
                 valuesForm.ShowDialog();
 
-                valuesList = GetValuesList();
+                GetValuesList();
             }
 
             ftPtSurveyTrackBarValue = valuesList[0];
             empConSurveyTrackBarValue = valuesList[1];
+
+            if (File.Exists(AppDatesFileName))
+            {
+                GetAppDatesDict();
+            }
         }
 
         private void AddJobIds()
@@ -212,6 +231,18 @@ namespace JobApplicationTracker
             }
         }
 
+        private FileStream CheckFileExistence(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                return File.Create(filePath);
+            }
+            else
+            {
+                return File.OpenWrite(filePath);
+            }
+        }
+        
         private void JobForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             AddJobIds();
@@ -219,16 +250,12 @@ namespace JobApplicationTracker
             FileStream saveFileStream;
             BinaryFormatter serializer = new BinaryFormatter();
 
-            if (File.Exists(JobsFileName))
-            {
-                saveFileStream = File.Create(JobsFileName);
-            }
-            else
-            {
-                saveFileStream = File.OpenWrite(JobsFileName);
-            }
-
+            saveFileStream = CheckFileExistence(JobsFileName);
             serializer.Serialize(saveFileStream, jobsBindingList);
+
+            saveFileStream = CheckFileExistence(AppDatesFileName);
+            serializer.Serialize(saveFileStream, jobApplicationDates);
+
             saveFileStream.Close();
         }
 
@@ -339,7 +366,7 @@ namespace JobApplicationTracker
             var valuesForm = new ValuesForm();
             valuesForm.ShowDialog();
 
-            valuesList = GetValuesList();
+            GetValuesList();
 
             ftPtSurveyTrackBarValue = valuesList[0];
             empConSurveyTrackBarValue = valuesList[1];
