@@ -117,6 +117,8 @@ namespace JobApplicationTracker
         public static int empConSurveyTrackBarValue;
         string ftPtFilterValue;
         string empConFilterValue;
+        Dictionary<int, DateTime> jobApplicationDates =
+            new Dictionary<int, DateTime>();
 
         private List<int> GetValuesList()
         {
@@ -139,7 +141,9 @@ namespace JobApplicationTracker
             if (File.Exists(JobsFileName))
             {
                 openFileStream = File.OpenRead(JobsFileName);
-                jobsBindingList = (BindingList<Job>)deserializer.Deserialize(openFileStream);
+                jobsBindingList = 
+                    (BindingList<Job>)deserializer
+                    .Deserialize(openFileStream);
                 openFileStream.Close();
             }
 
@@ -169,12 +173,14 @@ namespace JobApplicationTracker
         {
             var jobsWithoutIds =
                 from DataGridViewRow row in jobDataGridView.Rows
-                where !row.IsNewRow && (row.Cells[0] == null || (int)row.Cells[0].Value == 0)
+                where !row.IsNewRow && (row.Cells[0] == null 
+                || (int)row.Cells[0].Value == 0)
                 select row;
 
             var jobsWithIds =
                 from DataGridViewRow row in jobDataGridView.Rows
-                where !row.IsNewRow && row.Cells[0] != null && (int)row.Cells[0].Value != 0
+                where !row.IsNewRow && row.Cells[0] != null 
+                && (int)row.Cells[0].Value != 0
                 select row;
 
             var random = new Random();
@@ -342,6 +348,29 @@ namespace JobApplicationTracker
         private void jobDataGridView_Leave(object sender, EventArgs e)
         {
             AddJobIds();
+        }
+
+        private void jobDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == appliedColumn.Index)
+            {
+                if ((bool)jobDataGridView.CurrentCell.Value == true)
+                {
+                    var jobId =
+                        (int)jobDataGridView.Rows[e.RowIndex].Cells[0].Value;
+                    var currentDateTime = DateTime.UtcNow;
+
+                    if (jobApplicationDates.ContainsKey(jobId))
+                    {
+                        jobApplicationDates[jobId] = currentDateTime;
+                    }
+                    else
+                    {
+                        jobApplicationDates.Add(jobId, currentDateTime);
+                    }
+
+                }
+            }
         }
     }
 }

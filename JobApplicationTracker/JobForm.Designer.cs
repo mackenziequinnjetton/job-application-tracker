@@ -38,20 +38,20 @@
             this.empConFilterComboBox = new System.Windows.Forms.ComboBox();
             this.jobTabPage = new System.Windows.Forms.TabPage();
             this.jobDataGridView = new System.Windows.Forms.DataGridView();
-            this.recommendedTabPage = new System.Windows.Forms.TabPage();
-            this.recommendedDataGridView = new System.Windows.Forms.DataGridView();
-            this.actionTabPage = new System.Windows.Forms.TabPage();
-            this.recPositionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recEmployerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actionDataGridView = new System.Windows.Forms.DataGridView();
-            this.actionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.completedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ftPtColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.empConColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.appliedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.recommendedTabPage = new System.Windows.Forms.TabPage();
+            this.recommendedDataGridView = new System.Windows.Forms.DataGridView();
+            this.recPositionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recEmployerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actionTabPage = new System.Windows.Forms.TabPage();
+            this.actionDataGridView = new System.Windows.Forms.DataGridView();
+            this.completedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.actionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.filterTabPage.SuspendLayout();
             this.filterTableLayoutPanel.SuspendLayout();
@@ -189,86 +189,8 @@
             this.jobDataGridView.RowHeadersWidth = 51;
             this.jobDataGridView.Size = new System.Drawing.Size(786, 418);
             this.jobDataGridView.TabIndex = 0;
+            this.jobDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.jobDataGridView_CellValueChanged);
             this.jobDataGridView.Leave += new System.EventHandler(this.jobDataGridView_Leave);
-            // 
-            // recommendedTabPage
-            // 
-            this.recommendedTabPage.Controls.Add(this.recommendedDataGridView);
-            this.recommendedTabPage.Location = new System.Drawing.Point(4, 22);
-            this.recommendedTabPage.Name = "recommendedTabPage";
-            this.recommendedTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.recommendedTabPage.Size = new System.Drawing.Size(792, 424);
-            this.recommendedTabPage.TabIndex = 1;
-            this.recommendedTabPage.Text = "Recommended Jobs";
-            this.recommendedTabPage.UseVisualStyleBackColor = true;
-            // 
-            // recommendedDataGridView
-            // 
-            this.recommendedDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.recommendedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.recommendedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.recPositionColumn,
-            this.recEmployerColumn});
-            this.recommendedDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.recommendedDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.recommendedDataGridView.Name = "recommendedDataGridView";
-            this.recommendedDataGridView.ReadOnly = true;
-            this.recommendedDataGridView.RowHeadersWidth = 51;
-            this.recommendedDataGridView.Size = new System.Drawing.Size(786, 418);
-            this.recommendedDataGridView.TabIndex = 1;
-            // 
-            // actionTabPage
-            // 
-            this.actionTabPage.Controls.Add(this.actionDataGridView);
-            this.actionTabPage.Location = new System.Drawing.Point(4, 22);
-            this.actionTabPage.Name = "actionTabPage";
-            this.actionTabPage.Size = new System.Drawing.Size(792, 424);
-            this.actionTabPage.TabIndex = 2;
-            this.actionTabPage.Text = "Action Items";
-            this.actionTabPage.UseVisualStyleBackColor = true;
-            // 
-            // recPositionColumn
-            // 
-            this.recPositionColumn.HeaderText = "Position Title";
-            this.recPositionColumn.MinimumWidth = 6;
-            this.recPositionColumn.Name = "recPositionColumn";
-            // 
-            // recEmployerColumn
-            // 
-            this.recEmployerColumn.HeaderText = "Employer";
-            this.recEmployerColumn.MinimumWidth = 6;
-            this.recEmployerColumn.Name = "recEmployerColumn";
-            // 
-            // actionDataGridView
-            // 
-            this.actionDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.actionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.actionDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.completedColumn,
-            this.actionColumn});
-            this.actionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.actionDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.actionDataGridView.Name = "actionDataGridView";
-            this.actionDataGridView.ReadOnly = true;
-            this.actionDataGridView.Size = new System.Drawing.Size(792, 424);
-            this.actionDataGridView.TabIndex = 0;
-            // 
-            // actionColumn
-            // 
-            this.actionColumn.FillWeight = 194.9239F;
-            this.actionColumn.HeaderText = "Action Items";
-            this.actionColumn.MinimumWidth = 150;
-            this.actionColumn.Name = "actionColumn";
-            this.actionColumn.ReadOnly = true;
-            this.actionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.actionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // completedColumn
-            // 
-            this.completedColumn.FillWeight = 5.076141F;
-            this.completedColumn.HeaderText = "";
-            this.completedColumn.Name = "completedColumn";
-            this.completedColumn.ReadOnly = true;
             // 
             // idColumn
             // 
@@ -317,6 +239,87 @@
             this.appliedColumn.DataPropertyName = "Applied";
             this.appliedColumn.HeaderText = "Applied";
             this.appliedColumn.Name = "appliedColumn";
+            // 
+            // recommendedTabPage
+            // 
+            this.recommendedTabPage.Controls.Add(this.recommendedDataGridView);
+            this.recommendedTabPage.Location = new System.Drawing.Point(4, 22);
+            this.recommendedTabPage.Name = "recommendedTabPage";
+            this.recommendedTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.recommendedTabPage.Size = new System.Drawing.Size(792, 424);
+            this.recommendedTabPage.TabIndex = 1;
+            this.recommendedTabPage.Text = "Recommended Jobs";
+            this.recommendedTabPage.UseVisualStyleBackColor = true;
+            // 
+            // recommendedDataGridView
+            // 
+            this.recommendedDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.recommendedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.recommendedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.recPositionColumn,
+            this.recEmployerColumn});
+            this.recommendedDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recommendedDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.recommendedDataGridView.Name = "recommendedDataGridView";
+            this.recommendedDataGridView.ReadOnly = true;
+            this.recommendedDataGridView.RowHeadersWidth = 51;
+            this.recommendedDataGridView.Size = new System.Drawing.Size(786, 418);
+            this.recommendedDataGridView.TabIndex = 1;
+            // 
+            // recPositionColumn
+            // 
+            this.recPositionColumn.HeaderText = "Position Title";
+            this.recPositionColumn.MinimumWidth = 6;
+            this.recPositionColumn.Name = "recPositionColumn";
+            this.recPositionColumn.ReadOnly = true;
+            // 
+            // recEmployerColumn
+            // 
+            this.recEmployerColumn.HeaderText = "Employer";
+            this.recEmployerColumn.MinimumWidth = 6;
+            this.recEmployerColumn.Name = "recEmployerColumn";
+            this.recEmployerColumn.ReadOnly = true;
+            // 
+            // actionTabPage
+            // 
+            this.actionTabPage.Controls.Add(this.actionDataGridView);
+            this.actionTabPage.Location = new System.Drawing.Point(4, 22);
+            this.actionTabPage.Name = "actionTabPage";
+            this.actionTabPage.Size = new System.Drawing.Size(792, 424);
+            this.actionTabPage.TabIndex = 2;
+            this.actionTabPage.Text = "Action Items";
+            this.actionTabPage.UseVisualStyleBackColor = true;
+            // 
+            // actionDataGridView
+            // 
+            this.actionDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.actionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.actionDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.completedColumn,
+            this.actionColumn});
+            this.actionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.actionDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.actionDataGridView.Name = "actionDataGridView";
+            this.actionDataGridView.ReadOnly = true;
+            this.actionDataGridView.Size = new System.Drawing.Size(792, 424);
+            this.actionDataGridView.TabIndex = 0;
+            // 
+            // completedColumn
+            // 
+            this.completedColumn.FillWeight = 5.076141F;
+            this.completedColumn.HeaderText = "";
+            this.completedColumn.Name = "completedColumn";
+            this.completedColumn.ReadOnly = true;
+            // 
+            // actionColumn
+            // 
+            this.actionColumn.FillWeight = 194.9239F;
+            this.actionColumn.HeaderText = "Action Items";
+            this.actionColumn.MinimumWidth = 150;
+            this.actionColumn.Name = "actionColumn";
+            this.actionColumn.ReadOnly = true;
+            this.actionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.actionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // JobForm
             // 
