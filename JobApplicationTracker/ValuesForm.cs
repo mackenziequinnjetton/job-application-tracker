@@ -19,7 +19,7 @@ namespace JobApplicationTracker
             InitializeComponent();
         }
 
-        const string ValuesFileName = @"C:\Users\macke\Documents\Otech\PROG2002\JobApplicationTracker\ValuesData.bin";
+        string ValuesFileName = Application.StartupPath + @"\ValuesData.bin";
         List<int> valuesList = new List<int>();
 
         private void submitSurveyButton_Click(object sender, EventArgs e)

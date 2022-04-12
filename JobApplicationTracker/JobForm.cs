@@ -78,7 +78,7 @@ namespace JobApplicationTracker
             int cols = dgv.Columns.Count;
         }*/
 
-        [Serializable()]
+        /*[Serializable()]
         public class Job
         {
             public int IdNumber { get; set; }
@@ -106,7 +106,7 @@ namespace JobApplicationTracker
             }
 
             public Job() { }
-        }
+        }*/
 
         BindingList<Job> jobsBindingList = new BindingList<Job>();
         List<int> valuesList;
@@ -333,28 +333,30 @@ namespace JobApplicationTracker
         
         private void GetActionItems()
         {
-            string positionTitle = "";
-            string employer = "";
-            var followUpActionItem = $"Follow up with {positionTitle} at {employer}";
-
-            Dictionary<int, DateTime> tempJobApplicationDates = new Dictionary<int, DateTime>();
-            tempJobApplicationDates.Add(971, new DateTime(2022, 1, 1));
-
             actionDataGridView.Rows.Clear();
 
-            foreach (var entry in tempJobApplicationDates)
+            foreach (var entry in jobApplicationDates)
             {
-                var GetMatchingJob = 
-                    from DataGridViewRow row in jobDataGridView.Rows
-                    where !row.IsNewRow && (int)row.Cells[0].Value == entry.Key
-                    select row;
+                var applicationTime = entry.Value;
+                var currentTime = DateTime.UtcNow;
+                int daysPassed = (currentTime - applicationTime).Days;
 
-                foreach (var job in GetMatchingJob)
+                if (daysPassed >= 10)
                 {
-                    positionTitle = (string)job.Cells[1].Value;
-                    employer = (string)job.Cells[2].Value;
-                    
-                    actionDataGridView.Rows.Add(followUpActionItem);
+                    var GetMatchingJob =
+                        from DataGridViewRow row in jobDataGridView.Rows
+                        where !row.IsNewRow && (int)row.Cells[0].Value == entry.Key
+                        select row;
+
+                    foreach (var job in GetMatchingJob)
+                    {
+                        string positionTitle = (string)job.Cells[1].Value;
+                        string employer = (string)job.Cells[2].Value;
+
+                        var followUpActionItem = $"Follow up with {positionTitle} at {employer}";
+
+                        actionDataGridView.Rows.Add(null, followUpActionItem);
+                    }
                 }
             }
         }
@@ -399,9 +401,10 @@ namespace JobApplicationTracker
 
         private void jobDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == appliedColumn.Index)
+            if (e.ColumnIndex == jobDataGridView.Columns.IndexOf(appliedColumn))
             {
-                if (jobDataGridView.CurrentCell != null 
+                if (jobDataGridView.CurrentRow != null
+                    && jobDataGridView.CurrentCell != null 
                     && (bool)jobDataGridView.CurrentCell.Value == true)
                 {
                     var jobId =
